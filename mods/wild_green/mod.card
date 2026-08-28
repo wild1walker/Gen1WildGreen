@@ -1,0 +1,57 @@
+-- Sharing metadata read by tooling and the mod manager's detail pane; never
+-- by the loader's merge.
+return {
+  summary = "The player is green and the title screen says WILD GREEN "
+    .. "VERSION. The character art is recolored from your own imported "
+    .. "cache, never shipped, and PLAYER switches back to RED whenever you "
+    .. "want it.",
+  author = "wild1walker",
+  contact = "https://github.com/wild1walker/Gen1WildGreen",
+  tags = { "art", "player", "sprites", "title", "green", "cart" },
+  differences = {
+    added = {
+      "the player, green: the overworld walker, the BICYCLE sheet where the "
+        .. "import wrote one, the battle back pic, the front pic Oak's "
+        .. "intro and the trainer card and the Hall of Fame share, and the "
+        .. "standing figure on the title screen",
+      "WILD GREEN VERSION on the title screen, as one continuous ribbon "
+        .. "where the vanilla art is two fragments the title code "
+        .. "repositions. The lettering is drawn here, on the importer's "
+        .. "four grey shades, and is not derived from anything",
+      "a PLAYER row -- GREEN or RED -- and a TITLE RIBBON row, both in the "
+        .. "mod manager",
+    },
+    changed = {
+      "LOGO1, the SGB palette the title's version-ribbon band wears, to the "
+        .. "Wild Green four. Nothing else on the title screen reads that "
+        .. "palette, and nothing outside the title screen reads it at all",
+      "nothing about what the player does. This is art and a palette; no "
+        .. "map, script, encounter, item or battle is touched",
+    },
+    known = {
+      "PLAYER decides a sprites record, which is settled at load, so "
+        .. "switching it takes effect on the next launch",
+      "the green band is a registry record only under SGB. PaletteFX.pal "
+        .. "short-circuits every named palette to the boot-ROM pair under "
+        .. "OG RED and reads data/palettes_gbc under ADVANCED, so in those "
+        .. "two the ribbon keeps that mode's own colour -- the lettering is "
+        .. "still WILD GREEN VERSION, drawn in red",
+      "the recolored art is true-colour, which the mono and inverted "
+        .. "display modes do not honour; there the player falls back to the "
+        .. "baked ramp like any other sprite",
+      "no green pixel ships. The recipe runs against your own imported "
+        .. "cache on install, and a cache that carries none of the five "
+        .. "pictures leaves the player exactly as the base game drew him",
+    },
+  },
+  credits = {
+    { who = "distilledorion-sketch", for_ = "Crystal Animated Sprites with "
+      .. "Shiny Visuals, which this is meant to sit beside rather than "
+      .. "replace -- it is an optional dependency, not a fork, and its "
+      .. "art stays its own" },
+    { who = "Gen1Recomp", for_ = "the mod API, the asset-transform sandbox "
+      .. "this recolor runs in, and the title screen it draws on" },
+    { who = "pret", for_ = "the disassemblies underneath all of it" },
+  },
+  compat = { engine = ">=0.1.37 <2.0.0", modApi = 2 },
+}

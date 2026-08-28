@@ -1,0 +1,61 @@
+MIT License
+
+Copyright (c) 2026 wild1walker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## What this covers
+
+The licence above covers **the bundling** -- this repository's own code, which
+is everything outside `modules/`: the loader in `main.lua`, the feature
+registry in `features.lua`, the runtime under `runtime/` (the facade, the
+option set, the registry, the claim table, the menu), the adapters under
+`adapters/`, the tools under `tools/`, and the suites under `tests/`.
+
+It makes no claim over the mods this bundle carries.
+
+## The mods it carries
+
+`modules/<Feature>/` is a copy of another mod, built from the source beside it,
+and each one keeps its own licence file where it landed. Read that file for
+that feature's terms, not this one. A tracked feature's source is the
+repository its submodule under `upstream/` points at. Where a feature carries
+third-party work of its own, its notices travel with it -- see
+`modules/Gen1BattleUI/THIRD_PARTY_NOTICES.md`.
+
+One feature is maintained here rather than tracked, and its terms are its
+original author's to state rather than mine:
+
+- `modules/WidescreenBattleIntro/` -- from **Widescreen Battle Intro** by
+  [ShaneMcGovernIE](https://github.com/ShaneMcGovernIE/gen1recomp-widescreen-battle-intro).
+
+The original states no licence. The fork here is published in the spirit in
+which it was shared, with authorship credited in the README and in the file
+itself; if the author would like different terms, or would rather this not
+carry their work at all, that is their call and I will follow it.
+
+## Not covered by anything here
+
+This mod contains no ROM data and no copyrighted game assets, and requires the
+player's own copy of the game. The licence above grants no rights in
+ROM-derived material or in Nintendo trademarks, and makes no claim over either.
+Pokemon and all related names are trademarks of Nintendo / Creatures Inc. /
+GAME FREAK inc. This is a fan-made script mod.

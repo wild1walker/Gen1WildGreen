@@ -1,0 +1,42 @@
+name: Checks
+
+# The two gates that can be run without a gen1recomp checkout: the palette
+# copies still agree and the generated art is still what the tools draw, and
+# the mod does what tests/wild_green_test.lua says it does.
+#
+# The cart's own pins are checked by cart-release.yml, which runs
+# `cartkit validate . --online --strict` against the real releases.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Pillow
+        run: python3 -m pip install --quiet pillow
+
+      - name: Palettes agree and the art is current
+        run: python3 tools/check.py
+
+      - name: Install LuaJIT
+        run: sudo apt-get update && sudo apt-get install -y luajit
+
+      - name: Mod behaviour
+        run: luajit tests/wild_green_test.lua
