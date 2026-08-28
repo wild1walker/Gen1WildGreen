@@ -2,6 +2,21 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.21.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.21.0`: the `NEW NAME` page offered six names
+  rather than three — vanilla's `RED / ASH / JACK` and `BLUE / GARY / JOHN`
+  with the mod's own three appended behind them. The field registry appends
+  lists rather than replacing them; the mod unsets the key before writing it
+  now. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.21.0.zip` is `d6376b2e…8ab17e`, from the release's own
+  `sha256sums.txt`.
+
 ## [1.20.0] - 2026-08-28
 
 ### Changed
