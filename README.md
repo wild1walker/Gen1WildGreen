@@ -67,9 +67,10 @@ mods** and fetches them for you. Reach for that rather than breaking the seal.
 
 ---
 
-## Maintaining the cart
+## Working on the cart
 
-Everything below is for me.
+How the cart is put together, for anyone re-pinning a mod or cutting a
+release.
 
 ### What is in here
 
