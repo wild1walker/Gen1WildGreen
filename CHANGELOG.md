@@ -2,7 +2,26 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.7.0] - 2026-08-28
+## [1.8.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.8.0`: `PORTRAIT SKIN` had painted a jacket
+  highlight and only half of each hand. Separating skin from clothing by
+  size and by how much white is against a patch cannot work — on the real
+  card a hand and the jacket's shoulder are one pixel apart on size, white,
+  outfit and ink alike. It goes by where things sit now: the face is the
+  biggest patch high in the figure with paper against it, the hands are the
+  patches beside the lower half of the torso, and small pieces of the shade
+  below the skin's — the ear, the brow — take the skin's own shadow instead
+  of staying green.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.8.0.zip` is `c7da33b4…6a701fa`, from the release's own `sha256sums.txt`.
+
+## [1.7.0] - superseded by 1.8.0, never tagged on its own
 
 ### Fixed
 
@@ -28,7 +47,7 @@ All notable changes to this cart are recorded here, newest first.
 
 - `wild_green-1.7.0.zip` is `a27b00df…3df4f06`, from the release's own `sha256sums.txt`.
 
-## [1.5.0] - superseded by 1.7.0, never tagged on its own
+## [1.5.0] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
@@ -48,7 +67,7 @@ All notable changes to this cart are recorded here, newest first.
 - `PORTRAIT SKIN` is deliberately **not** frozen in the cart's pin, the same
   way `player` is not: both are the player's to choose.
 
-## [1.4.0] - superseded by 1.7.0, never tagged on its own
+## [1.4.0] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
@@ -71,7 +90,7 @@ All notable changes to this cart are recorded here, newest first.
   checked against the asset's digest a second time:
   `wild_green-1.4.0.zip` is `9ecdc422…5a9c62b`.
 
-## [1.3.0] - superseded by 1.7.0, never tagged on its own
+## [1.3.0] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
@@ -83,7 +102,7 @@ All notable changes to this cart are recorded here, newest first.
   list so a swap can never point at a picture the recipe did not write.
   See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.2.0] - superseded by 1.7.0, never tagged on its own
+## [1.2.0] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
@@ -102,7 +121,7 @@ All notable changes to this cart are recorded here, newest first.
 - The cap's bill is a green-tinted white, and is found by region rather than
   by row. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.4] - superseded by 1.7.0, never tagged on its own
+## [1.1.4] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
@@ -110,14 +129,14 @@ All notable changes to this cart are recorded here, newest first.
   than painted out, and the cap's bill goes with the hat in profile as well
   as facing down. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.3] - superseded by 1.7.0, never tagged on its own
+## [1.1.3] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
 - Wild Green re-pinned to `1.1.3`: the cap's bill goes with the hat instead
   of taking the face's colour. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.2] - superseded by 1.7.0, never tagged on its own
+## [1.1.2] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
@@ -127,7 +146,7 @@ All notable changes to this cart are recorded here, newest first.
   takes the `GAME FREAK` line green with it and is on a `TITLE FIGURE` row of
   its own. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.1] - superseded by 1.7.0, never tagged on its own
+## [1.1.1] - superseded by 1.8.0, never tagged on its own
 
 ### Changed
 
