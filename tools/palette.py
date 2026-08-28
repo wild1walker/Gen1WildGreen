@@ -1,31 +1,46 @@
 #!/usr/bin/env python3
 """The Wild Green palette, in one place, for the tools that draw with it.
 
-Four colours and nothing else.  They are the same four the mod's own
-`transforms.lua` recolors the player's art to, and the same four the cart's
-shell and label are drawn from, because a cart whose lettering and whose
-shell disagree about what green it is looks like two carts.
+Four colours for the character, three for the title, and nothing else.
 
-The greens are measured, not invented.  `LIGHT` is sampled off the reference
-overworld sprite (#65ba3f, the bright green the character's body reads as);
-`DARK` is that green taken down to the weight vanilla's "Red Version"
-lettering carries against white (#a01e29, v=0.63), so the ribbon reads the
-way the red one does rather than merely being green.
+    twin: wild1walker/Gen1MakeItGreen tools/palette.py
 
-`tools/check.py` fails the build if these drift from the copy in
-`mods/wild_green/transforms.lua`, which cannot import anything.
+## The character ramp
+
+The importer decodes vanilla art to four grey shades (255 / 170 / 85 / 0)
+and the palette pass colours them at draw time.  On the player's sprites
+those four are, in order: the transparent/white ground, **the skin and the
+shirt's white**, **the outfit**, and the black outline and hair.
+
+That second entry is the one that got this wrong the first time.  Recolouring
+shades 2 AND 3 green turns the face green too, which is what "all green
+instead of just his outfit" looked like in the field.  Only shade 3 is the
+outfit, so only shade 3 turns green; shade 2 becomes skin, which is what the
+palette pass would have made of it.
+
+## The title ramp
+
+`LOGO1` is the SGB palette the title's version-ribbon band wears, and it is
+independent of the character -- the ribbon is lettering on white, not a
+sprite.  Both its greens are dark enough to read as green ink on paper at
+8px; the first cut used the character's light green and washed out.
 """
 
-# lightest first, matching the shade order every palette table in the engine
-# uses and the order ctx.recolor wants
-PAPER = (0xff, 0xff, 0xff)   # shade 1 -- stays pure white: battle pics matte on it
-LIGHT = (0x65, 0xba, 0x3f)   # shade 2 -- the reference sprite green
-DARK = (0x1e, 0x7a, 0x2b)    # shade 3 -- the VERSION lettering, and the shell
-INK = (0x00, 0x00, 0x00)     # shade 4
+# The character, lightest first -- the order ctx.recolor reads.
+PAPER = (0xff, 0xff, 0xff)   # shade 1 -- pure white: battle pics matte on it
+SKIN = (0xf8, 0xd8, 0xa8)    # shade 2 -- the face, and the shirt's white
+OUTFIT = (0x65, 0xba, 0x3f)  # shade 3 -- the cap and clothes; the reference green
+INK = (0x00, 0x00, 0x00)     # shade 4 -- outline and hair
 
-RAMP = [PAPER, LIGHT, DARK, INK]
+RAMP = [PAPER, SKIN, OUTFIT, INK]
 
-SHELL = "#%02x%02x%02x" % DARK
+# The title ribbon band (LOGO1).  Ink is the lettering; MID is its shadow.
+TITLE_MID = (0x2e, 0x8b, 0x3a)
+TITLE_INK = (0x14, 0x57, 0x1f)
+TITLE_RAMP = [PAPER, TITLE_MID, TITLE_INK, INK]
+
+# The cartridge shell, and the VERSION lettering it matches.
+SHELL = "#%02x%02x%02x" % TITLE_INK
 
 # The wordmark's own two colours, lifted from docs/banner.png in Gen1Wild so
 # the label and the index banner stay the same object.
@@ -38,6 +53,6 @@ def hexof(rgb):
 
 
 if __name__ == "__main__":
-    for name in ("PAPER", "LIGHT", "DARK", "INK"):
-        print("%-6s %s" % (name, hexof(globals()[name])))
-    print("%-6s %s" % ("SHELL", SHELL))
+    for name in ("PAPER", "SKIN", "OUTFIT", "INK", "TITLE_MID", "TITLE_INK"):
+        print("%-10s %s" % (name, hexof(globals()[name])))
+    print("%-10s %s" % ("SHELL", SHELL))

@@ -2,7 +2,21 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.0.0] - unreleased
+## [1.1.0] - unreleased
+
+### Changed
+
+- **The shell is `#14571f`**, not `#1e7a2b`. The cartridge follows the
+  `VERSION` lettering, and Wild Green 1.1.0 darkened that lettering because
+  the first cut washed out on the title screen. `label.png` is redrawn to
+  match; `tools/check.py` would have failed the build if it were not.
+- Wild Green re-pinned to `1.1.0`, which fixes the four things 1.0.0 got
+  wrong on screen — the player only changing in the overworld, the overworld
+  player being green all over instead of green-clothed, the pale title
+  lettering, and a `field.boot` double-patch that silently cost the default
+  name. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.0.0] - 2026-08-28
 
 ### Added
 

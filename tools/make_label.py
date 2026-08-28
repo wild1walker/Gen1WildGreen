@@ -11,10 +11,10 @@ anything a third element would add is illegible by the time it is drawn.
 The wordmark is not redrawn here.  It is `art/gen1wild_wordmark.png`, the
 same committed artwork Gen1Wild's own banner and favicon are cut from, so
 the cart and the index stay one object rather than two things that have to
-be kept looking alike by hand.  The green under it is the shell colour from
-tools/palette.py, which is also the colour of the VERSION lettering on the
-title screen: the cartridge and the title agree because they read the same
-four numbers.
+be kept looking alike by hand.  The green under it is TITLE_INK from
+tools/palette.py, which is cart.json's shell AND the colour of the VERSION
+lettering on the title screen: the cartridge and the title agree because
+they read the same number.
 
 The version line is tools/ribbon.py, the same face and the same wording the
 mod draws its title ribbon from -- one file, two places it appears.
@@ -31,7 +31,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 import ribbon  # noqa: E402
-from palette import DARK, LIGHT, PAPER, WORDMARK_BLUE  # noqa: E402
+from palette import PAPER, TITLE_INK, TITLE_MID, WORDMARK_BLUE  # noqa: E402
 
 try:
     from PIL import Image
@@ -48,11 +48,15 @@ TEXT_SCALE = 2      # the 5x7 face, doubled, so it reads at thumbnail size
 
 
 def sticker():
-    """The green field the wordmark sits on: a flat face inside a darker edge."""
-    edge = tuple(int(round(c * 0.55)) for c in DARK)
+    """The green field the wordmark sits on: a flat face inside a darker edge.
+
+    The face is TITLE_INK, which is also cart.json's shell and the colour of
+    the VERSION lettering on the title screen -- one number, three places.
+    """
+    edge = tuple(int(round(c * 0.55)) for c in TITLE_INK)
     img = Image.new("RGB", (SIZE, SIZE), edge)
-    img.paste(Image.new("RGB", (SIZE - 2 * MARGIN, SIZE - 2 * MARGIN), DARK),
-              (MARGIN, MARGIN))
+    img.paste(Image.new("RGB", (SIZE - 2 * MARGIN, SIZE - 2 * MARGIN),
+                        TITLE_INK), (MARGIN, MARGIN))
     return img
 
 
@@ -65,7 +69,7 @@ def wordmark(width):
 def version_line():
     """The ribbon's own lettering, as an RGBA layer keyed on its paper shade."""
     width, grid = ribbon.draw()
-    shades = {ribbon.DARK: PAPER, ribbon.LIGHT: LIGHT}
+    shades = {ribbon.DARK: PAPER, ribbon.LIGHT: TITLE_MID}
     layer = Image.new("RGBA", (width, ribbon.HEIGHT), (0, 0, 0, 0))
     layer.putdata([shades.get(s, (0, 0, 0))
                    + ((0,) if s == ribbon.PAPER else (255,))
