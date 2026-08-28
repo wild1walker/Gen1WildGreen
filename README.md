@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="label.png" alt="Wild Green" width="240">
+  <a href="https://wild1walker.github.io/Gen1Wild/"><img src="art/banner.png" alt="Gen1Wild — Wild Green Version. Check out my other mods!" width="880"></a>
 </p>
 
 # Wild Green
@@ -70,6 +70,10 @@ also fails if this repository's palette has drifted from the mod's.
 
 ## The label
 
+<p align="center">
+  <img src="label.png" alt="The Wild Green cartridge label" width="200">
+</p>
+
 [`art/wild_green_label.png`](art/wild_green_label.png), scaled to 256×256 by
 [`tools/make_label.py`](tools/make_label.py). The artwork already carries the
 [Gen1Wild][index] wordmark with `WILD GREEN VERSION` under it, so scaling it
@@ -86,6 +90,7 @@ have to be kept alike by hand.
 cart.json                     identity, base game, seal, one pin per mod
 label.png                     the label the launcher draws     (generated)
 art/wild_green_label.png      the cartridge artwork, as committed
+art/banner.png                the README's banner; links to the index
 tools/palette.py              every colour, twinned with the mod's copy
 tools/make_label.py           draws label.png
 tools/check.py                cart.json agrees; the label is current
