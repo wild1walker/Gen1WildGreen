@@ -2,7 +2,15 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.1.3] - unreleased
+## [1.1.4] - unreleased
+
+### Changed
+
+- Wild Green re-pinned to `1.1.4`: the lips are vanilla's red again rather
+  than painted out, and the cap's bill goes with the hat in profile as well
+  as facing down. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.1.3] - 2026-08-28
 
 ### Changed
 
