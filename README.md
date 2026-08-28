@@ -9,98 +9,69 @@
 Every quality-of-life and visual upgrade in the [Gen1Wild][index] suite, in
 one cart — and only the ones that still feel like Red. That was the whole
 filter. Sprinting, autosave, a Pokédex worth opening, a bag with pockets,
-battle backdrops, animated Crystal sprites, followers behind you: none of it
-turns this into a different game. It is the game you remember, with the parts
-that made you put it down taken out.
+battle backdrops, animated Crystal sprites, a Pokémon walking behind you: none
+of it turns this into a different game. It is the game you remember, with the
+parts that made you put it down taken out.
 
 **And you can catch every single one of them.** All 151, in one save, on one
 version, without trading — the legendaries retryable until you land them, the
-trade evolutions handled by an item, Mew behind the Mansion journals where it
-always should have been. Every vanilla encounter still behaves exactly as
-vanilla does; the missing species are placed around them, not on top of them.
+trade evolutions handled by an item, Mew waiting behind the Mansion journals
+where it always should have been. Every encounter the cartridge already had
+still behaves exactly as it always did.
 
 So if you are going for a 100% Kanto dex, or you just want Red to feel like a
 game made this decade, Wild Green is the most enjoyable way to do it.
 
-It is a [custom cart][carts] for [gen1recomp][engine]: the suite pinned
-whole, a player who is green, and a title screen that says
-`WILD GREEN VERSION`. The suite's two halves are [Gen1WildUI][ui] and
-[Gen1WildQOL][qol], and this is not a third half — it is those two, plus one
-more mod and one of somebody else's, fixed at exact versions and given a
-name. A cart is not a mod pack you assemble: it is its own entry in the
-launcher, its own shell colour and label, its own save slots. Two people
-running Wild Green run the same mods at the same versions.
+## It is a version, not a mod list
 
-## What is in it
+Wild Green is a [custom cart][carts] for [gen1recomp][engine]: a fixed set of
+mods that plays as its own game, with its own entry in the launcher, its own
+cartridge and label, and its own save slots. Nothing here writes into your
+base Red saves. Two people running Wild Green are running the same game.
 
 | | Pinned | What it is |
 |---|---|---|
-| <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_qol/thumbnail.png" width="54" alt=""> | **[Gen1WildQOL][qol]** | The quality-of-life half: sprinting, autosave, auto continue, sound, followers, all 151, EXP share, remembered moves, menu layout, the mod manager and four later-generation conveniences. |
-| <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_ui/thumbnail.png" width="54" alt=""> | **[Gen1WildUI][ui]** | The visual half: battle backdrops, the battle intro, the Pokédex, the box, the party menu, the bag, item icons and descriptions, the lift panel. |
-| | **[Crystal Animated Sprites with Shiny Visuals][crystal]** | Crystal animated battle sprites, Gen 2-style shiny reveals with the cry held until the sparkle finishes, and swappable trainer portraits. Somebody else's mod, pinned unmodified. |
+| <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_qol/thumbnail.png" width="54" alt=""> | **[Gen1WildQOL][qol]** | Everything that makes Red *play* better: sprinting, autosave, auto continue, sound, followers, all 151, EXP share, the move reminder, menu layout, the mod manager and four later-generation conveniences. |
+| <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_ui/thumbnail.png" width="54" alt=""> | **[Gen1WildUI][ui]** | Everything that makes Red *look* better: battle backdrops, the battle intro and menus, the Pokédex, the box, the party menu, the bag, item icons and descriptions, the lift panel. |
+| | **[Crystal Animated Sprites with Shiny Visuals][crystal]** | Crystal animated battle sprites, Gen 2-style shiny reveals, and swappable trainer portraits. Somebody else's mod, pinned as it is. |
 | | **[Wild Green][mod]** | The version itself: the player in green wherever the game draws him, and `WILD GREEN VERSION` on the title screen. Written for this cart. |
 
-Exact versions are in [`cart.json`](cart.json), which is the only place they
-are written down. Nothing else in this repository repeats them, because a
-second copy is a copy that goes stale.
+The mod set is sealed — you cannot add to it — but every one of the four can
+still be switched off, and every feature inside them is still a switch you can
+flip. A cart you could not play your own way would miss the point.
 
-The seal is **`sealed+`**: the mod set is fixed, and you may switch any of
-the four off. That is deliberate — a cart that cannot be taken apart is a
-cart you cannot play your own way, and every feature in both bundles already
-switches on and off by itself.
+The green is derived from Red's own art rather than shipped, so switching back
+to `PLAYER = RED` gives you the original character with nothing to reinstall.
 
-The base game is **Red**. The cart carries no game data and no ROM bytes;
-you supply your own, exactly as the engine already asks you to.
+The base game is **Red**. The cart carries no game data and no ROM bytes; you
+bring your own, exactly as the engine already asks.
 
 ## Installing it
 
 Download `wild_green-<version>.g1rcart` from
 [Releases](https://github.com/wild1walker/Gen1WildGreen/releases) and open it
 from the game — **Custom Carts > Import a cart** on desktop, or drop the file
-into the `carts` folder of the save directory and the launcher adopts it.
+into the `carts` folder of your save directory and the launcher picks it up.
 
-If a pinned mod is missing, the cart's page offers **Install required mods**,
-which resolves each pin to its release, checks the archive against the
-`sha256` recorded here, and installs it. Reach for that rather than breaking
-the seal.
+If a pinned mod is missing, the cart's own page offers **Install required
+mods** and fetches them for you. Reach for that rather than breaking the seal.
 
-## The green
+## Credits
 
-[`tools/palette.py`](tools/palette.py) is where every colour in the version
-is written down, and the same file is carried in [the mod's repo][mod] — the
-cartridge shell and the title screen's lettering are the same numbers, and
-neither repository can import from the other.
+- **[Gen1Wild][index]** — the suite this is the version of, and the wordmark
+  on the label.
+- **distilledorion-sketch** — [Crystal Animated Sprites with Shiny
+  Visuals][crystal], pinned here unmodified rather than forked.
+- **[Gen1Recomp][engine]** — the engine and the cart format.
+- **pret** — the disassemblies underneath all of it.
 
-| | | |
-|---|---|---|
-| paper | `#ffffff` | stays pure white: the battle back pic mattes on it |
-| skin | `#f0a363` | the face, the ear, the hands |
-| outfit | `#65ba3f` | the cap and the jacket — the reference sprite's green |
-| ink | `#000000` | |
-| lettering | `#2e8b3a` / `#14571f` | `VERSION` on the title screen, **and the cartridge shell** |
+---
 
-The shell is the lettering's own green because it is the same number, not
-because the two were matched by eye — [`tools/check.py`](tools/check.py)
-fails if `cart.json` and the palette ever disagree, and with `--online` it
-also fails if this repository's palette has drifted from the mod's.
+## Maintaining the cart
 
-## The label
+Everything below is for me.
 
-<p align="center">
-  <img src="label.png" alt="The Wild Green cartridge label" width="200">
-</p>
-
-[`art/wild_green_label.png`](art/wild_green_label.png), scaled to 256×256 by
-[`tools/make_label.py`](tools/make_label.py). The artwork already carries the
-[Gen1Wild][index] wordmark with `WILD GREEN VERSION` under it, so scaling it
-is the whole job — nothing is composited and no lettering is drawn.
-
-The same file is the cart's card in the [Gen1Wild][index] index: the index
-fetches whatever `cart.json`'s `label` names and writes it in as the
-thumbnail, so the cartridge and the card are one picture rather than two that
-have to be kept alike by hand.
-
-## Layout
+### What is in here
 
 ```
 cart.json                     identity, base game, seal, one pin per mod
@@ -112,14 +83,30 @@ tools/make_label.py           draws label.png
 tools/check.py                cart.json agrees; the label is current
 ```
 
-The cart ships no code. The mod that gives it its name lives in
-[its own repository][mod], because gen1recomp's stock mod release workflow
-and its stock cart release workflow both build from the repository root, and
-cartkit resolves a pin only against a `v<version>` or `<version>` tag whose
-release carries `<mod-id>-<version>.zip`. Two artifacts cannot share that
-namespace.
+Exact pinned versions live in [`cart.json`](cart.json) and nowhere else — a
+second copy is a copy that goes stale. The cart ships no code; the mod that
+gives it its name lives in [its own repository][mod], because a mod release
+and a cart release cannot share one repo's tag namespace.
 
-## Working on it
+### The green, and the label
+
+[`tools/palette.py`](tools/palette.py) is where every colour is written down,
+and the same file is carried in [the mod's repo][mod]. The cartridge shell and
+the title screen's lettering are the same number rather than two greens
+matched by eye — `tools/check.py` fails if `cart.json` and the palette ever
+disagree, and `--online` fails if this repo's palette has drifted from the
+mod's.
+
+<p align="center">
+  <img src="label.png" alt="The Wild Green cartridge label" width="200">
+</p>
+
+The label is [`art/wild_green_label.png`](art/wild_green_label.png) scaled to
+256×256 by [`tools/make_label.py`](tools/make_label.py). The same file is the
+cart's card in the [Gen1Wild][index] index, so the cartridge and the card are
+one picture rather than two kept alike by hand.
+
+### Working on it
 
 ```sh
 python3 tools/check.py             # the cart's own gate
@@ -127,61 +114,36 @@ python3 tools/check.py --online    # ...and the palette against the mod's
 ```
 
 Everything else is `tools/cartkit.py` from a [gen1recomp][engine] checkout,
-pointed at this directory:
-
-```sh
-python3 /path/to/gen1recomp/tools/cartkit.py validate .          # offline
-python3 /path/to/gen1recomp/tools/cartkit.py validate . --online # every pin
-python3 /path/to/gen1recomp/tools/cartkit.py pack .              # build it
-```
-
-Re-pin a mod when it cuts a release:
+pointed at this directory — `validate`, `validate --online`, `pack`. To re-pin
+a mod when it cuts a release:
 
 ```sh
 python3 /path/to/gen1recomp/tools/cartkit.py pin . \
   wild1walker/Gen1MakeItGreen@1.20.0 --id wild_green
 ```
 
-`--id` is not optional. cartkit derives a pin id from the repository name,
-which gives `gen1makeitgreen`; the id the loader matches against is the
-manifest's `wild_green`, and a pin under the wrong id never finds the mod it
-pinned.
+`--id` is not optional: cartkit derives a pin id from the repository name,
+which gives `gen1makeitgreen`, and the loader matches the manifest's
+`wild_green`.
 
-Never hand-edit a version string in `cart.json`. The `gen1_wild_ui` pin spent
-six versions reading `1.13.0` — a version that repository never released,
-carrying the digest of `wild_green-1.13.0.zip` — because a script matched the
-first `"version"` under `mods` and rewrote the wrong entry. `cartkit pin`
-addresses the entry by id, and `validate --online --strict` is what finally
-caught it.
+**Never hand-edit a version string in `cart.json`.** The `gen1_wild_ui` pin
+once spent six versions reading a version that repo never released, because a
+script matched the first `"version"` under `mods` and rewrote the wrong entry.
+`cartkit pin` addresses the entry by id.
 
-## Releasing
+### Releasing
 
 **Bump `"version"` in `cart.json` and push to `main`. That is all of it.**
 
 [`.github/workflows/cart-release.yml`](.github/workflows/cart-release.yml)
-runs on every push, validates every pin against the real releases, packs the
-cart, and publishes `wild_green-<version>.g1rcart` with a `sha256sums.txt` —
-creating the `v<version>` tag as it does, so nobody has to push one. A push
-whose version is already released resolves it, sees the tag, and stops.
-
-Nothing is tagged before validation passes, so a cart pointing at an
-unpublished mod fails the run rather than leaving a stray tag behind. A tag
-pushed by hand still works, and is still checked against `cart.json`.
+validates every pin against the real releases, packs the cart, tags it, and
+publishes the `.g1rcart` with a `sha256sums.txt`. Nothing is tagged before
+validation passes, so a cart pointing at an unpublished mod fails the run
+rather than leaving a stray tag behind.
 
 The [Gen1Wild][index] index rebuilds hourly, reads the pins out of this
-repository's `cart.json`, and re-fetches `label.png` as the card's thumbnail.
-Nothing there needs touching when this releases.
-
-## Credits
-
-- **[Gen1Wild][index]** — the suite this is the version of, and the wordmark
-  on the label.
-- **distilledorion-sketch** — [Crystal Animated Sprites with Shiny
-  Visuals][crystal], pinned here unmodified rather than forked. Wild Green
-  sits beside it and does not touch its art or its `PLAYER SPRITE` row.
-- **[Gen1Recomp][engine]** — the engine, the cart format, and the
-  asset-transform sandbox the recolor runs in.
-- **pret** — the disassemblies underneath all of it.
+repo's `cart.json` and re-fetches `label.png`, so nothing there needs touching
+when this releases.
 
 ## Licence
 
