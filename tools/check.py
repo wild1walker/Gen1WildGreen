@@ -77,7 +77,7 @@ def check_twins():
     """The files carried in both repositories are still the same file."""
     if not TWIN_ROOT.is_dir():
         print("check: the mod is not in this tree, so its copies of %s are "
-              "not checked here -- Gen1makeitgreen checks its own"
+              "not checked here -- Gen1MakeItGreen checks its own"
               % ", ".join(TWINS))
         return
     for name in TWINS:

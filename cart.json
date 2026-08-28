@@ -36,9 +36,9 @@
     {
       "id": "wild_green",
       "source": "github",
-      "repo": "wild1walker/Gen1makeitgreen",
+      "repo": "wild1walker/Gen1MakeItGreen",
       "version": "1.0.0",
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sha256": "b20a23a55ae921addbc2f7bc6ba085f104ec822a16ff42706cc3047d4de8ff76",
       "options": {
         "ribbon": true
       }

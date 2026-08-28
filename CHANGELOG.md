@@ -17,33 +17,14 @@ All notable changes to this cart are recorded here, newest first.
 - `tools/` — the four colours (`palette.py`), the lettering (`ribbon.py`),
   the label generator, and the check that keeps `cart.json`'s shell, the
   committed label and the files shared with the mod's repo honest.
-- `mods/wild_green/` — **staged, not home.** A complete repository root for
-  the mod: the player in green, recolored from the player's own imported
-  cache, and `WILD GREEN VERSION` on the title screen, with its own `tools/`,
-  `tests/` (50 headless checks), `LICENSE` and release workflow. It has its
-  own [README](mods/wild_green/README.md) and
-  [DIFFERENCES](mods/wild_green/DIFFERENCES.md).
-
-### Open
-
-- **The mod has no repository yet.** It belongs in
-  `wild1walker/Gen1makeitgreen`, which could not be created from here — the
-  integration is not permitted to create repositories. Everything else is
-  done: the directory is a repository root, nothing in the cart's tooling
-  reaches into it except the twin-file check, and moving it is a copy, a
-  push, and a delete. [README.md](README.md#releasing) has the order.
-
-  It needs its own repository rather than a subdirectory because gen1recomp's
-  stock mod release workflow and its stock cart release workflow both trigger
-  on `v*` tags and both build from the repository root, and cartkit resolves
-  a pin only against a `v<version>` or `<version>` tag whose release carries
-  `<mod-id>-<version>.zip`. Two artifacts cannot share that namespace, and a
-  prefixed tag scheme is not a way out of it either.
-
-- **The `wild_green` pin carries the placeholder hash**, because cartkit
-  reads a hash off a release and the mod has none yet. `cartkit validate .`
-  passes with a warning; `--strict` does not, which is the release workflow's
-  gate and is the correct behaviour until the pin is resolved.
+- The `wild_green` pin, at [wild1walker/Gen1MakeItGreen][mod] — the mod that
+  makes this a version rather than a mod list. It was staged in this repo
+  while it had nowhere else to be; it now lives in its own repository,
+  because gen1recomp's stock mod release workflow and its stock cart release
+  workflow both trigger on `v*` tags and both build from the repository root,
+  and cartkit resolves a pin only against a `v<version>` or `<version>` tag
+  whose release carries `<mod-id>-<version>.zip`. Two artifacts cannot share
+  that namespace, and a prefixed tag scheme is not a way out of it either.
 
 ### Notes
 
@@ -63,3 +44,5 @@ All notable changes to this cart are recorded here, newest first.
   bright green the reference overworld character's body reads as, and
   `#1e7a2b` is that green taken down to the weight vanilla's `Red Version`
   lettering carries against white.
+
+[mod]: https://github.com/wild1walker/Gen1MakeItGreen

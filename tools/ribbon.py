@@ -18,7 +18,7 @@ which is a picture and not a palette zone -- map the shades themselves.
 No font file is loaded and nothing is measured off the host, so a rebuild on
 any machine produces byte-identical output.
 
-    twin: wild1walker/Gen1makeitgreen tools/ribbon.py
+    twin: wild1walker/Gen1MakeItGreen tools/ribbon.py
 """
 
 import struct
