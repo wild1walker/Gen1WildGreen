@@ -2,7 +2,18 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.1.0] - unreleased
+## [1.1.1] - unreleased
+
+### Changed
+
+- Wild Green re-pinned to `1.1.1`: the player's skin is a warm tan measured
+  off the reference rather than the pale cream 1.1.0 shipped, and the title
+  screen's standing figure is left vanilla — `TitleState` bakes the OBJ
+  palette onto it and gives it no `trueColor` seam, so recoloured art came
+  back white and pink. The ribbon carries that screen on its own.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.1.0] - 2026-08-28
 
 ### Changed
 
