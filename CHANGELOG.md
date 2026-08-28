@@ -2,6 +2,24 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.23.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.23.0`: the painted pictures — the title figure
+  and the battle back pic — are lists of coordinates, and only ever found
+  their art sitting exactly where it sat. A cache holding the **same** sprite
+  one pixel over, from an importer that pads differently or a rip on a larger
+  sheet, failed every check at once and lost its skin with identical pixels
+  underneath. They are matched where they were drawn first, and slid over the
+  picture only if that fails.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.23.0.zip` is `3eadecd1…b8c55a`, from the release's own
+  `sha256sums.txt`, checked against the archive.
+
 ## [1.22.0] - 2026-08-28
 
 ### Fixed
