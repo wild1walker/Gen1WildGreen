@@ -2,7 +2,19 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.2.0] - unreleased
+## [1.3.0] - unreleased
+
+### Changed
+
+- Wild Green re-pinned to `1.3.0`: the trainer art takes its own ramp —
+  white, light green, green, black — instead of the overworld sprite's, so
+  the battle back pic, the trainer card, Oak's intro and the Hall of Fame
+  come out clean rather than blotched with orange and red. Four more of the
+  player's pictures are covered, and the recipe and the hook now share one
+  list so a swap can never point at a picture the recipe did not write.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.2.0] - 2026-08-28
 
 ### Changed
 
