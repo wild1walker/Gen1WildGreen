@@ -2,7 +2,24 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.17.0] - 2026-08-28
+## [1.18.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.18.0`: the player's mouth is red when he faces
+  left or right, not green. Facing forward the mouth has skin on both sides
+  and was already caught; in profile one side is the silhouette's outline, so
+  the old rule read it as outfit. It now accepts a mouth with skin on a single
+  side, provided there is cheek directly above it and the pixel is not part of
+  the cap's brim.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.18.0.zip` is `84891262…fd6e32`, from the release's own
+  `sha256sums.txt`.
+
+## [1.17.0] - superseded by 1.18.0, never tagged on its own
 
 ### Fixed
 
