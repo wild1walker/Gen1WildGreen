@@ -2,6 +2,25 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.22.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.22.0`: **the player's battle back pic had no
+  skin on it at all** — in a battle he was one green shape from the cap to
+  the boots. No rule ever reached that picture: the portrait skin pass is
+  built around finding a face and gives up the moment it cannot, and there is
+  no face on the back of his head, so it fell through to the flat ramp. His
+  neck, jaw, hand and forearm are skin now. `PORTRAIT SKIN` is also a real
+  switch on that picture for the first time — with nothing painted, the two
+  copies the recipe writes were the same picture.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.22.0.zip` is `68b15f31…5cf742`, from the release's own
+  `sha256sums.txt`, checked against the archive.
+
 ## [1.21.0] - 2026-08-28
 
 ### Fixed
