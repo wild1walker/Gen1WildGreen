@@ -14,6 +14,27 @@ All notable changes to this cart are recorded here, newest first.
   the cap's brim.
   See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
+- The `gen1_wild_ui` pin said `1.13.0`, a version that was never released,
+  with a digest that belonged to `wild_green-1.13.0.zip`. The bump script
+  that cut cart 1.13.0 matched the first `"version": "1.12.0"` under `mods`
+  and rewrote the wrong entry. It is back to `1.12.0` /
+  `c4015d0b…a4a536`, which is what Gen1WildUI's newest release actually
+  publishes. No released cart carried the bad pin: nothing past `v1.1.0` had
+  been tagged.
+
+### Changed
+
+- The cart releases itself. `cart-release.yml` used to wait for a `v*` tag
+  pushed by hand; it now runs on every push to `main`, and cuts
+  `v<cart.json version>` when that tag does not exist yet. The tag is made by
+  `gh release create --target <sha>` rather than a git push, which is how the
+  mod's own workflow has always worked. Bumping `"version"` in `cart.json` is
+  the whole release ceremony now.
+- Nothing is tagged before `cartkit validate . --online --strict` passes, so
+  a cart.json pointing at an unpublished mod fails the run instead of leaving
+  a tag behind. That check is also what would have caught the `gen1_wild_ui`
+  pin above, had anything ever been in a position to run it.
+
 ### Notes
 
 - `wild_green-1.18.0.zip` is `84891262…fd6e32`, from the release's own

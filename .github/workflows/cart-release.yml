@@ -1,14 +1,38 @@
 name: Release
 
+# Packs the cart into an installable .g1rcart and publishes it as a GitHub
+# Release.  Bumping "version" in cart.json is the whole ceremony: the next
+# push to main cuts the release and creates the tag along with it.
+#
+# The tag is not pushed by a git command.  `gh release create --target <sha>`
+# creates the tag itself, which is also how the mod's own release workflow
+# works -- one API call instead of a push that has to be authenticated
+# separately.  It also sidesteps the recursion guard: a ref created with
+# GITHUB_TOKEN never triggers another workflow run, so the `push: tags` path
+# below cannot fire on a tag this job just made.
+#
+# Three ways in, and the version is cart.json's in all three:
+#   * a push to main -- cuts v<version> if that tag does not exist yet, and
+#     quietly does nothing if it does, so ordinary pushes are free;
+#   * a v<version> tag pushed by hand -- still honoured, and still checked
+#     against cart.json so a mistyped tag fails loudly instead of shipping;
+#   * a manual run, optionally naming an existing tag to rebuild.
+#
+# Nothing is tagged before the pins are validated.  A cart.json that points
+# at a mod release which is not published yet fails at "Validate every pin"
+# and leaves no tag behind to clean up.
+
 on:
   push:
+    branches: [main]
     tags:
       - 'v*'
   workflow_dispatch:
     inputs:
       tag:
-        description: "Existing v<version> tag to build and publish."
-        required: true
+        description: "Existing v<version> tag to rebuild. Leave blank to cut cart.json's version."
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -33,48 +57,104 @@ jobs:
           ref: ${{ github.event.inputs.tag || github.ref }}
           fetch-depth: 0
 
+      - name: Resolve the version, and decide whether there is anything to cut
+        id: cart
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DISPATCH_TAG: ${{ github.event.inputs.tag }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, subprocess, sys
+
+          def die(msg):
+              print(f"::error::{msg}", file=sys.stderr)
+              raise SystemExit(1)
+
+          with open("cart.json", encoding="utf-8") as fh:
+              cart = json.load(fh)
+          version = str(cart.get("version", ""))
+          cart_id = str(cart.get("id", ""))
+
+          stamped = os.environ["CART_ID"]
+          if cart_id != stamped:
+              die(f"cart.json id is {cart_id}, but this workflow was stamped "
+                  f"for {stamped}; rerun cartkit add-release-workflow")
+
+          want = f"v{version}"
+
+          # An explicit tag -- pushed, or named on a manual run -- is a
+          # deliberate act, so it is honoured even if the release exists
+          # (the publish step re-uploads over it).  It still has to agree
+          # with cart.json, or the release would carry a version the cart
+          # inside it does not report.
+          named = os.environ.get("DISPATCH_TAG", "").strip()
+          if not named and os.environ.get("REF_TYPE") == "tag":
+              named = os.environ["REF_NAME"]
+
+          if named:
+              if named != want:
+                  die(f"tag {named} does not match cart.json version "
+                      f"{version} (expected {want})")
+              skip = False
+              why = "an explicit tag"
+          else:
+              # A push to main.  Cut the version only if it has not been cut
+              # before; every other push is a no-op rather than a failure,
+              # because most pushes to main are not releases.
+              exists = subprocess.run(
+                  ["git", "rev-parse", "-q", "--verify", f"refs/tags/{want}"],
+                  capture_output=True).returncode == 0
+              if not exists:
+                  exists = subprocess.run(
+                      ["gh", "release", "view", want],
+                      capture_output=True).returncode == 0
+              skip = exists
+              why = (f"{want} is already released; nothing to do"
+                     if exists else f"cart.json is at {version}, untagged")
+
+          print(f"{why}.", file=sys.stderr)
+          print(f"version={version}")
+          print(f"id={cart_id}")
+          print(f"tag={want}")
+          print(f"skip={'true' if skip else 'false'}")
+          PY
+
+      - name: Set up Python
+        if: steps.cart.outputs.skip != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Pillow
+        if: steps.cart.outputs.skip != 'true'
+        run: python3 -m pip install --quiet pillow
+
+      # The same gate checks.yml runs, repeated here so a release cannot ship
+      # a label that is not what the tool draws.  checks.yml runs on the same
+      # push, but nothing makes this job wait for it.
+      - name: The cart agrees with itself and the art is current
+        if: steps.cart.outputs.skip != 'true'
+        run: python3 tools/check.py
+
       - name: Fetch cartkit
+        if: steps.cart.outputs.skip != 'true'
         run: |
           set -euo pipefail
           curl -fsSL --retry 3 -o "$RUNNER_TEMP/cartkit.py" \
             "https://raw.githubusercontent.com/${CARTKIT_REPO}/${CARTKIT_REF}/tools/cartkit.py"
           python3 "$RUNNER_TEMP/cartkit.py" selftest --quiet
 
-      - name: Check the tag against cart.json
-        id: cart
-        env:
-          TAG: ${{ github.event.inputs.tag || github.ref_name }}
-        run: |
-          set -euo pipefail
-          python3 - <<'PY' >> "$GITHUB_OUTPUT"
-          import json, os, sys
-
-          with open("cart.json", encoding="utf-8") as fh:
-              cart = json.load(fh)
-          version = str(cart.get("version", ""))
-          cart_id = str(cart.get("id", ""))
-          tag = os.environ["TAG"]
-          if tag != f"v{version}":
-              print(f"::error::tag {tag} does not match cart.json version "
-                    f"{version} (expected v{version})", file=sys.stderr)
-              raise SystemExit(1)
-          stamped = os.environ["CART_ID"]
-          if cart_id != stamped:
-              print(f"::error::cart.json id is {cart_id}, but this workflow "
-                    f"was stamped for {stamped}; rerun cartkit "
-                    "add-release-workflow", file=sys.stderr)
-              raise SystemExit(1)
-          print(f"version={version}")
-          print(f"id={cart_id}")
-          print(f"tag={tag}")
-          PY
-
       - name: Validate every pin
+        if: steps.cart.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 "$RUNNER_TEMP/cartkit.py" validate . --online --strict
 
       - name: Pack the cart
+        if: steps.cart.outputs.skip != 'true'
         env:
           CART_VERSION: ${{ steps.cart.outputs.version }}
           CART_NAME: ${{ steps.cart.outputs.id }}
@@ -89,6 +169,7 @@ jobs:
           cat "$out/sha256sums.txt"
 
       - name: Publish GitHub Release
+        if: steps.cart.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           CART_VERSION: ${{ steps.cart.outputs.version }}
@@ -97,8 +178,10 @@ jobs:
         run: |
           set -euo pipefail
 
+          # The commit, not the tag: on the push-to-main path the tag does
+          # not exist yet -- `gh release create --target` is what makes it.
           prev="$(git tag -l 'v*' --sort=-v:refname | grep -v "^${TAG}$" | head -1 || true)"
-          range="${prev:+${prev}..}${TAG}"
+          range="${prev:+${prev}..}$GITHUB_SHA"
           changes="$(git log --no-merges --pretty='- %s' "$range" | head -50 || true)"
 
           notes=$'Download the .g1rcart and open it from the game to install this cart.'
@@ -120,3 +203,10 @@ jobs:
           fi
 
           echo "Published $TAG"
+
+      - name: Nothing to release
+        if: steps.cart.outputs.skip == 'true'
+        run: |
+          echo "cart.json is at ${{ steps.cart.outputs.version }}, which is"
+          echo "already released as ${{ steps.cart.outputs.tag }}."
+          echo "Bump \"version\" in cart.json to cut the next one."
