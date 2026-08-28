@@ -137,7 +137,7 @@ jobs:
       # push, but nothing makes this job wait for it.
       - name: The cart agrees with itself and the art is current
         if: steps.cart.outputs.skip != 'true'
-        run: python3 tools/check.py
+        run: python3 tools/check.py --online
 
       - name: Fetch cartkit
         if: steps.cart.outputs.skip != 'true'

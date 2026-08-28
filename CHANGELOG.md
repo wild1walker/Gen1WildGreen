@@ -2,6 +2,46 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.20.0] - 2026-08-28
+
+### Changed
+
+- **A new cartridge label.** `art/wild_green_label.png` is finished artwork
+  carrying the Gen1Wild wordmark with `WILD GREEN VERSION` under it, so
+  `make_label.py` no longer composites the wordmark with `ribbon.py`'s 5×7
+  face — it scales the piece to 256×256 and nothing else. No keyline: the old
+  sticker was a green field on a green shell and needed one, and this is
+  bright against `#14571f`. The Gen1Wild index serves this same file as the
+  cart's card, so the card follows on its next hourly rebuild.
+- `tools/ribbon.py` and `art/gen1wild_wordmark.png` are gone. Nothing drew
+  from them once the label stopped being assembled here; the lettering lives
+  in [the mod's repo][mod], which is where the title ribbon is drawn.
+- The README is rewritten to the shape the rest of the suite uses, and no
+  longer prints the pinned versions in prose — `cart.json` is the only place
+  they are written down.
+- Wild Green re-pinned to `1.20.0`: the hair no longer flickers black as he
+  walks towards the camera. See [its changelog][mod-log].
+
+### Fixed
+
+- **`tools/palette.py` had drifted from the mod's copy and nothing noticed.**
+  The twin check only ran while the mod shared this tree, so it went quiet
+  when the mod moved out and stayed quiet for eighteen versions; `SKIN` here
+  still read `#f8d8a8`, from before the skin tones were worked out, and none
+  of the colours added since were here at all. The file is synced, and
+  `check.py --online` now fetches the mod's copy and compares — CI passes
+  `--online`, so this cannot go quiet again.
+
+### Notes
+
+- `wild_green-1.20.0.zip` is `770f3e5f…2daf25`, from the release's own
+  `sha256sums.txt`.
+- `v1.19.0` was cut by the workflow itself, from a `cart.json` bump, with no
+  tag pushed by hand.
+
+[mod]: https://github.com/wild1walker/Gen1MakeItGreen
+[mod-log]: https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md
+
 ## [1.19.0] - 2026-08-28
 
 ### Changed

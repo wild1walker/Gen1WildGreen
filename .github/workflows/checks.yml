@@ -34,4 +34,4 @@ jobs:
         run: python3 -m pip install --quiet pillow
 
       - name: The cart agrees with itself and the art is current
-        run: python3 tools/check.py
+        run: python3 tools/check.py --online
