@@ -2,7 +2,17 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.1.1] - unreleased
+## [1.1.2] - unreleased
+
+### Changed
+
+- Wild Green re-pinned to `1.1.2`: the player's mouth is skin rather than
+  green, and the title screen's standing figure is green again — coloured
+  through the `MEWMON` zone palette rather than by swapping the pic, which
+  takes the `GAME FREAK` line green with it and is on a `TITLE FIGURE` row of
+  its own. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.1.1] - 2026-08-28
 
 ### Changed
 
