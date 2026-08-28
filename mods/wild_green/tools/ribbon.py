@@ -1,36 +1,28 @@
 #!/usr/bin/env python3
-"""Draw the title screen's version ribbon: WILD GREEN VERSION.
+"""The WILD GREEN VERSION lettering: a 5x7 face and the strip it draws.
 
-    python3 tools/make_ribbon.py
+A library, not a command.  Two things set this wording and they are in two
+repositories: the title screen's version ribbon, which is an asset in the
+Wild Green mod, and the version line on this cart's label.  They are the
+same words in the same face because they come from the same file -- so this
+file is carried in both, and each repo's tools/check.py fails if the copies
+drift.
 
-Writes mods/wild_green/assets/title/wild_green_version.png.
+Everything here is drawn on the importer's four grey shades (255 / 170 / 85
+/ 0) rather than in colour, because the title screen's ribbon band is an SGB
+palette zone: `TitleState:sgbPalettes` colours tile rows 8-9 with LOGO1 and
+the shader remaps by shade.  Green pixels would be read as shades and
+remapped to something else entirely.  Callers that want colour -- the label,
+which is a picture and not a palette zone -- map the shades themselves.
 
-This is original art and ships as pixels, which is the whole reason it is
-drawn here rather than recolored out of the player's cache: nothing in it
-comes from the ROM.  The vanilla ribbon is two fragments the title code
-repositions; ours is one continuous strip, which is what `versionRibbon`
-(as opposed to the importer's `version`) means to `src/ui/TitleState.lua` --
-it centres a full ribbon as one piece at y=64.
+No font file is loaded and nothing is measured off the host, so a rebuild on
+any machine produces byte-identical output.
 
-The strip is written on the importer's four grey shades (255 / 170 / 85 / 0)
-and not in colour, because the title's ribbon band is an SGB palette zone:
-`TitleState:sgbPalettes` colours tile rows 8-9 with LOGO1, and the shader
-remaps by shade.  Green pixels here would be read as shades and remapped to
-something else entirely.  The green arrives from the LOGO1 record the mod
-overrides -- see mods/wild_green/main.lua.
-
-The font is a 5x7 all-caps face written out below.  No font file is loaded
-and nothing is measured off the host, so a rebuild on any machine produces
-a byte-identical PNG.
+    twin: wild1walker/Gen1WildGreen tools/ribbon.py
 """
 
-import pathlib
 import struct
-import sys
 import zlib
-
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "mods" / "wild_green" / "assets" / "title" / "wild_green_version.png"
 
 TEXT = "WILD GREEN VERSION"
 
@@ -75,21 +67,21 @@ FONT = {
 def layout(text):
     """(x, glyph) for every letter, and the width the strip needs."""
     placed, x = [], 0
-    for index, ch in enumerate(text):
+    for ch in text:
         if ch == " ":
             x += SPACE
             continue
         glyph = FONT.get(ch)
         if glyph is None:
-            raise SystemExit("make_ribbon: no glyph for %r" % ch)
+            raise SystemExit("ribbon: no glyph for %r" % ch)
         placed.append((x, glyph))
         x += GLYPH_W + GAP
-        del index
-    # the trailing gap is not part of the ribbon; the shadow row is
+    # the trailing gap is not part of the ribbon; the shadow column is
     return placed, x - GAP + 1
 
 
-def draw(text):
+def draw(text=TEXT):
+    """The strip as (width, rows of shade values)."""
     placed, width = layout(text)
     grid = [[PAPER] * width for _ in range(HEIGHT)]
 
@@ -111,6 +103,7 @@ def draw(text):
 
 
 def png_bytes(width, height, grid):
+    """An 8-bit RGB PNG of a grid of shade values."""
     raw = bytearray()
     for row in grid:
         raw.append(0)
@@ -125,19 +118,3 @@ def png_bytes(width, height, grid):
     return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", header)
             + chunk(b"IDAT", zlib.compress(bytes(raw), 9))
             + chunk(b"IEND", b""))
-
-
-def main():
-    width, grid = draw(TEXT)
-    if width > 160:
-        raise SystemExit("make_ribbon: %d px is wider than the 160 px screen"
-                         % width)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_bytes(png_bytes(width, HEIGHT, grid))
-    print("wrote %s  %dx%d  (centres at x=%d)"
-          % (OUT.relative_to(ROOT), width, HEIGHT, (160 - width) // 2))
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

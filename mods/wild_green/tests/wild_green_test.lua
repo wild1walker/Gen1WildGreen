@@ -18,9 +18,9 @@
 --     it is independent of PLAYER;
 --   * the ramp in main.lua is the ramp in transforms.lua, byte for byte.
 --
--- Run:  luajit tests/wild_green_test.lua
+-- Run:  luajit tests/wild_green_test.lua   (from the mod's root)
 
-local MOD = "mods/wild_green/"
+local MOD = ""
 
 local passed, failed = 0, 0
 local function ok(condition, description)

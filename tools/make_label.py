@@ -16,13 +16,12 @@ tools/palette.py, which is also the colour of the VERSION lettering on the
 title screen: the cartridge and the title agree because they read the same
 four numbers.
 
-The version line reuses the title ribbon's own 5x7 face, drawn straight out
-of tools/make_ribbon.py, for the same reason -- one face, one wording, two
-places it appears.
+The version line is tools/ribbon.py, the same face and the same wording the
+mod draws its title ribbon from -- one file, two places it appears.
 
 Pillow is required here and only here: the wordmark is a real PNG with
 alpha that has to be scaled and composited, which is more than the
-hand-rolled writer in make_ribbon.py is for.
+hand-rolled writer in ribbon.py is for.
 """
 
 import pathlib
@@ -31,8 +30,8 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
+import ribbon  # noqa: E402
 from palette import DARK, LIGHT, PAPER, WORDMARK_BLUE  # noqa: E402
-import make_ribbon  # noqa: E402
 
 try:
     from PIL import Image
@@ -50,11 +49,10 @@ TEXT_SCALE = 2      # the 5x7 face, doubled, so it reads at thumbnail size
 
 def sticker():
     """The green field the wordmark sits on: a flat face inside a darker edge."""
-    img = Image.new("RGB", (SIZE, SIZE), DARK)
     edge = tuple(int(round(c * 0.55)) for c in DARK)
-    inner = Image.new("RGB", (SIZE - 2 * MARGIN, SIZE - 2 * MARGIN), DARK)
-    img.paste(Image.new("RGB", (SIZE, SIZE), edge), (0, 0))
-    img.paste(inner, (MARGIN, MARGIN))
+    img = Image.new("RGB", (SIZE, SIZE), edge)
+    img.paste(Image.new("RGB", (SIZE - 2 * MARGIN, SIZE - 2 * MARGIN), DARK),
+              (MARGIN, MARGIN))
     return img
 
 
@@ -66,13 +64,13 @@ def wordmark(width):
 
 def version_line():
     """The ribbon's own lettering, as an RGBA layer keyed on its paper shade."""
-    width, grid = make_ribbon.draw(make_ribbon.TEXT)
-    shades = {make_ribbon.DARK: PAPER, make_ribbon.LIGHT: LIGHT}
-    layer = Image.new("RGBA", (width, make_ribbon.HEIGHT), (0, 0, 0, 0))
-    layer.putdata([shades.get(s, (0, 0, 0)) + ((0,) if s == make_ribbon.PAPER
-                                               else (255,))
+    width, grid = ribbon.draw()
+    shades = {ribbon.DARK: PAPER, ribbon.LIGHT: LIGHT}
+    layer = Image.new("RGBA", (width, ribbon.HEIGHT), (0, 0, 0, 0))
+    layer.putdata([shades.get(s, (0, 0, 0))
+                   + ((0,) if s == ribbon.PAPER else (255,))
                    for row in grid for s in row])
-    return layer.resize((width * TEXT_SCALE, make_ribbon.HEIGHT * TEXT_SCALE),
+    return layer.resize((width * TEXT_SCALE, ribbon.HEIGHT * TEXT_SCALE),
                         Image.NEAREST)
 
 

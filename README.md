@@ -19,7 +19,7 @@ mods at the same versions.
 |---|---|---|
 | <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_qol/thumbnail.png" width="54" alt=""> | **[Gen1WildQOL][qol]** `1.11.1` | The quality-of-life half: sprinting, autosave, auto continue, sound, followers, all 151, EXP share, menu layout, the mod manager and four later-generation conveniences. |
 | <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_ui/thumbnail.png" width="54" alt=""> | **[Gen1WildUI][ui]** `1.12.0` | The visual half: battle backdrops, the battle intro, the Pokédex, the box, the party menu, the bag, item icons and descriptions, the lift panel. |
-| | **[Wild Green](mods/wild_green)** `1.0.0` | The version itself: the player in green, and `WILD GREEN VERSION` on the title screen. Written here. |
+| | **[Wild Green][mod]** `1.0.0` | The version itself: the player in green, and `WILD GREEN VERSION` on the title screen. Written for this cart. |
 
 The seal is **`sealed+`**: the mod set is fixed, and you may switch any of the
 three off. That is deliberate — a cart that cannot be taken apart is a cart
@@ -73,13 +73,34 @@ the title screen are lettered the same way.
 cart.json                  identity, base game, seal, one pin per mod
 label.png                  the label the launcher draws        (generated)
 art/gen1wild_wordmark.png  the Gen1Wild wordmark, as committed
-mods/wild_green/           the mod written here
-tools/palette.py           the four colours, once
+tools/palette.py           the four colours
+tools/ribbon.py            the WILD GREEN VERSION lettering
 tools/make_label.py        draws label.png
-tools/make_ribbon.py       draws the title ribbon
-tools/check.py             the palettes agree; the art is current
-tests/                     headless coverage of the mod
+tools/check.py             cart.json agrees; the label is current
+mods/wild_green/           the mod, staged here until its repo exists
 ```
+
+`tools/palette.py` and `tools/ribbon.py` are carried in [the mod's repo][mod]
+too — the cartridge's shell and the title screen's lettering are the same
+four numbers and the same 5x7 face, and neither repo can import from the
+other. `tools/check.py` compares them while `mods/wild_green/` is still in
+this tree, and says so plainly once it is not.
+
+### `mods/wild_green/` is staged, not home
+
+It is a complete repository root — its own `tools/`, `tests/`, `LICENSE` and
+release workflow — sitting here because
+[`wild1walker/Gen1makeitgreen`](https://github.com/wild1walker/Gen1makeitgreen)
+does not exist yet. Nothing in the cart's own tooling reaches into it except
+the twin check above, so moving it out is a copy, a push, and deleting the
+directory.
+
+gen1recomp's stock mod release workflow and its stock cart release workflow
+both trigger on `v*` tags and both build from the repository root, and
+cartkit resolves a pin only against a `v<version>` or `<version>` tag whose
+release carries `<mod-id>-<version>.zip`. Two artifacts cannot share that
+namespace, which is why the mod gets its own repository rather than a
+subdirectory here.
 
 ## Working on it
 
@@ -87,8 +108,7 @@ Everything below is `tools/cartkit.py` from a [gen1recomp][engine] checkout,
 pointed at this directory.
 
 ```sh
-python3 tools/check.py                                  # from this repo
-luajit tests/wild_green_test.lua                        # from this repo
+python3 tools/check.py                                  # the cart's own gate
 
 python3 /path/to/gen1recomp/tools/cartkit.py validate .          # offline
 python3 /path/to/gen1recomp/tools/cartkit.py validate . --online # every pin
@@ -107,23 +127,25 @@ which gives `gen1wildui`; the id the loader matches against is the manifest's
 
 ## Releasing
 
-The `wild_green` pin currently carries the placeholder hash, because the mod
-it points at has no release yet. Ordering matters, and it is once:
+The `wild_green` pin carries the placeholder hash: cartkit reads a hash off
+a release, and the mod has none yet. Ordering matters, and it is once.
 
-1. Cut the mod's first release, so `wild_green-1.0.0.zip` and its
-   `sha256sums.txt` exist.
-2. `cartkit pin . wild1walker/<the mod's repo>@1.0.0 --id wild_green`, which
-   reads the hash off that release.
-3. `cartkit validate . --online --strict` — clean now.
-4. Tag `v1.0.0` and push it. [`.github/workflows/cart-release.yml`](.github/workflows/cart-release.yml)
+1. Create `wild1walker/Gen1makeitgreen`, empty.
+2. Copy `mods/wild_green/` to its root, push, and let its release workflow
+   publish `wild_green-1.0.0.zip` and a `sha256sums.txt`.
+3. Delete `mods/wild_green/` here.
+4. Resolve the pin against that release:
+
+   ```sh
+   python3 /path/to/gen1recomp/tools/cartkit.py pin . \
+     wild1walker/Gen1makeitgreen@1.0.0 --id wild_green
+   ```
+
+5. `cartkit validate . --online --strict` — clean now.
+6. Tag `v1.0.0` and push it.
+   [`.github/workflows/cart-release.yml`](.github/workflows/cart-release.yml)
    validates, packs, and attaches `wild_green-1.0.0.g1rcart` with a
    `sha256sums.txt`.
-
-Step 1 needs a decision that is not made here: the stock mod release workflow
-and the stock cart release workflow both own the `v*` tag namespace and both
-build from the repository root, so the mod and the cart cannot share a
-repository without one of them getting a hand-written workflow. See
-[CHANGELOG.md](CHANGELOG.md).
 
 Then add an entry under `carts/` in the [Gen1Wild][index] index so the
 launcher can find it. The index entry's `repo` names **this** repo, not the
@@ -150,3 +172,4 @@ MIT. See [LICENSE](LICENSE).
 [ui]: https://github.com/wild1walker/Gen1WildUI
 [qol]: https://github.com/wild1walker/Gen1WildQOL
 [crystal]: https://github.com/distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals
+[mod]: https://github.com/wild1walker/Gen1makeitgreen

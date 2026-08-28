@@ -6,7 +6,7 @@ return {
     .. "cache, never shipped, and PLAYER switches back to RED whenever you "
     .. "want it.",
   author = "wild1walker",
-  contact = "https://github.com/wild1walker/Gen1WildGreen",
+  contact = "https://github.com/wild1walker/Gen1makeitgreen",
   tags = { "art", "player", "sprites", "title", "green", "cart" },
   differences = {
     added = {

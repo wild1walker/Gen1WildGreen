@@ -2,7 +2,7 @@
 
 **The player is green and the title screen says so.** That is the whole mod.
 
-It is the identity half of the [Wild Green](../../README.md) cart: the cart
+It is the identity half of the [Wild Green][cart] cart: the cart
 pins [Gen1WildUI](https://github.com/wild1walker/Gen1WildUI) and
 [Gen1WildQOL](https://github.com/wild1walker/Gen1WildQOL) for everything a
 playthrough actually does, and this supplies the one thing a pinned mod set
@@ -22,7 +22,7 @@ It works on its own too. Nothing here depends on either bundle.
 
 The ribbon is one continuous strip reading **WILD GREEN VERSION**, where the
 vanilla art is two fragments the title code repositions. It is drawn by
-[`tools/make_ribbon.py`](../../tools/make_ribbon.py) on the importer's four
+[`tools/make_ribbon.py`](tools/make_ribbon.py) on the importer's four
 grey shades, and the green arrives from the `LOGO1` palette this mod
 overrides — the SGB palette the title's ribbon band wears.
 
@@ -62,7 +62,7 @@ sets exist the whole time; `main.lua` points the records at one or the other.
 
 ## The palette
 
-Four colours, in [`tools/palette.py`](../../tools/palette.py), and the same
+Four colours, in [`tools/palette.py`](tools/palette.py), and the same
 four everywhere they appear — the sprite recolor, the ribbon lettering, the
 cart's shell and the cart's label:
 
@@ -76,8 +76,12 @@ cart's shell and the cart's label:
 They are written out three times — once in Python, twice in Lua — because
 none of the three can import from the others: the transform runs in a sandbox
 with no `require`, an entry chunk cannot require its own files, and the tools
-are Python. [`tools/check.py`](../../tools/check.py) fails the build if they
-drift apart.
+are Python. [`tools/check.py`](tools/check.py) fails the build if they drift
+apart.
+
+`tools/palette.py` and `tools/ribbon.py` are carried in the [cart's repo][cart]
+too, because the cartridge's shell and the label's version line are drawn from
+the same four numbers and the same 5×7 face. Change one, change both.
 
 ## Alongside other mods
 
@@ -93,7 +97,8 @@ rather than fighting it.
 ## Tests
 
 ```sh
-luajit tests/wild_green_test.lua   # from the repository root
+python3 tools/check.py             # the palettes agree, the ribbon is current
+luajit tests/wild_green_test.lua   # what the mod actually does
 ```
 
 Stands up the loader's `mod` table and the asset sandbox's `ctx`, runs the
@@ -111,4 +116,6 @@ drawn — including that `PLAYER = RED` writes no character patch at all.
 
 ## Licence
 
-MIT, same as the rest of the suite. See [LICENSE](../../LICENSE).
+MIT, same as the rest of the suite. See [LICENSE](LICENSE).
+
+[cart]: https://github.com/wild1walker/Gen1WildGreen

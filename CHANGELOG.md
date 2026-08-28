@@ -9,37 +9,39 @@ All notable changes to this cart are recorded here, newest first.
 - The Wild Green cart: base `red`, seal `sealed+`, shell `#1e7a2b`, pinning
   Gen1WildQOL `1.11.1`, Gen1WildUI `1.12.0` and Wild Green `1.0.0` in that
   load order.
-- `mods/wild_green/` — the mod that makes it a version rather than a mod
-  list: the player in green, recolored from the player's own imported cache,
-  and `WILD GREEN VERSION` on the title screen. It has its own
-  [README](mods/wild_green/README.md) and
-  [DIFFERENCES](mods/wild_green/DIFFERENCES.md).
 - `label.png` — the Gen1Wild wordmark with `WILD GREEN VERSION` under it, on
-  the shell green.
-- `tools/` — the palette, the two art generators, and the check that keeps
-  the three copies of the palette and the two generated PNGs honest.
-- `tests/wild_green_test.lua` — 50 headless checks over the mod.
+  the shell green, drawn by `tools/make_label.py` from the committed wordmark
+  and the same 5×7 face the mod letters its title ribbon with.
+- `tools/` — the four colours (`palette.py`), the lettering (`ribbon.py`),
+  the label generator, and the check that keeps `cart.json`'s shell, the
+  committed label and the files shared with the mod's repo honest.
+- `mods/wild_green/` — **staged, not home.** A complete repository root for
+  the mod: the player in green, recolored from the player's own imported
+  cache, and `WILD GREEN VERSION` on the title screen, with its own `tools/`,
+  `tests/` (50 headless checks), `LICENSE` and release workflow. It has its
+  own [README](mods/wild_green/README.md) and
+  [DIFFERENCES](mods/wild_green/DIFFERENCES.md).
 
 ### Open
 
-- **The `wild_green` pin carries the placeholder hash.** It is resolved by
-  `cartkit pin` once the mod has a release to read a hash off, which cannot
-  happen before the next item is decided. `cartkit validate .` passes with a
-  warning; `--strict` does not, which is the release workflow's gate and is
-  the correct behaviour until this is closed.
-- **The mod needs a home.** gen1recomp's stock mod release workflow and its
-  stock cart release workflow both trigger on `v*` tags and both build from
-  the repository root, so a cart and a mod cannot share a repository on
-  stock tooling. cartkit resolves a pin only against a `v<version>` or
-  `<version>` tag whose release carries `<mod-id>-<version>.zip`, so a
-  prefixed tag scheme is not a way out of it either. Two ways to close it:
+- **The mod has no repository yet.** It belongs in
+  `wild1walker/Gen1makeitgreen`, which could not be created from here — the
+  integration is not permitted to create repositories. Everything else is
+  done: the directory is a repository root, nothing in the cart's tooling
+  reaches into it except the twin-file check, and moving it is a copy, a
+  push, and a delete. [README.md](README.md#releasing) has the order.
 
-  - give `mods/wild_green/` its own repository, which is the shape the wiki
-    describes and the shape Gen1WildUI and Gen1WildQOL already have; or
-  - keep one repository and hand-write one of the two workflows.
+  It needs its own repository rather than a subdirectory because gen1recomp's
+  stock mod release workflow and its stock cart release workflow both trigger
+  on `v*` tags and both build from the repository root, and cartkit resolves
+  a pin only against a `v<version>` or `<version>` tag whose release carries
+  `<mod-id>-<version>.zip`. Two artifacts cannot share that namespace, and a
+  prefixed tag scheme is not a way out of it either.
 
-  Nothing else in here changes either way — the mod's files, the cart's
-  fields and the load order are the same in both.
+- **The `wild_green` pin carries the placeholder hash**, because cartkit
+  reads a hash off a release and the mod has none yet. `cartkit validate .`
+  passes with a warning; `--strict` does not, which is the release workflow's
+  gate and is the correct behaviour until the pin is resolved.
 
 ### Notes
 
@@ -49,3 +51,7 @@ All notable changes to this cart are recorded here, newest first.
   is `18959ac0…15f9027`.
 - `ribbon` is frozen on in the cart's pin; `player` deliberately is not, so
   `GREEN` / `RED` stays the player's to choose.
+- The greens are sampled from the reference art, not picked: `#65ba3f` is the
+  bright green the reference overworld character's body reads as, and
+  `#1e7a2b` is that green taken down to the weight vanilla's `Red Version`
+  lettering carries against white.
