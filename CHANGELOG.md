@@ -2,6 +2,24 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.19.0] - 2026-08-28
+
+### Changed
+
+- Wild Green re-pinned to `1.19.0`: both lists on the naming screen's
+  `NEW NAME` page read as a sentence down the cursor —
+  **WILD / GREEN / VERSION** for the player, **Thanks / For / Playing!**
+  for the rival. The default name a save takes when the naming step never
+  runs is still `GREEN`.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.19.0.zip` is `b36f0ff3…41858d`, from the release's own
+  `sha256sums.txt`.
+- First cart cut by the automation added in 1.18.0: `v1.18.0` was tagged and
+  published by the workflow itself, from a `cart.json` version bump.
+
 ## [1.18.0] - 2026-08-28
 
 ### Fixed
