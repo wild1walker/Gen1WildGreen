@@ -2,7 +2,23 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.8.0] - 2026-08-28
+## [1.9.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.9.0`: the player's hands and ear are skin on
+  the big pictures, and his sleeves are not. Skin on that art is drawn in
+  two shades — the hands in the mid shade alone, the same one as the
+  trousers and the cap — and every rule before this looked only at the
+  light shade, so the hands and the ear were unreachable and what those
+  rules found on the arms was the jacket's own shading.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.9.0.zip` is `5349ebe2…c38f497`, from the release's own `sha256sums.txt`.
+
+## [1.8.0] - superseded by 1.9.0, never tagged on its own
 
 ### Fixed
 
@@ -21,7 +37,7 @@ All notable changes to this cart are recorded here, newest first.
 
 - `wild_green-1.8.0.zip` is `c7da33b4…6a701fa`, from the release's own `sha256sums.txt`.
 
-## [1.7.0] - superseded by 1.8.0, never tagged on its own
+## [1.7.0] - superseded by 1.9.0, never tagged on its own
 
 ### Fixed
 
@@ -47,7 +63,7 @@ All notable changes to this cart are recorded here, newest first.
 
 - `wild_green-1.7.0.zip` is `a27b00df…3df4f06`, from the release's own `sha256sums.txt`.
 
-## [1.5.0] - superseded by 1.8.0, never tagged on its own
+## [1.5.0] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
@@ -67,7 +83,7 @@ All notable changes to this cart are recorded here, newest first.
 - `PORTRAIT SKIN` is deliberately **not** frozen in the cart's pin, the same
   way `player` is not: both are the player's to choose.
 
-## [1.4.0] - superseded by 1.8.0, never tagged on its own
+## [1.4.0] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
@@ -90,7 +106,7 @@ All notable changes to this cart are recorded here, newest first.
   checked against the asset's digest a second time:
   `wild_green-1.4.0.zip` is `9ecdc422…5a9c62b`.
 
-## [1.3.0] - superseded by 1.8.0, never tagged on its own
+## [1.3.0] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
@@ -102,7 +118,7 @@ All notable changes to this cart are recorded here, newest first.
   list so a swap can never point at a picture the recipe did not write.
   See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.2.0] - superseded by 1.8.0, never tagged on its own
+## [1.2.0] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
@@ -121,7 +137,7 @@ All notable changes to this cart are recorded here, newest first.
 - The cap's bill is a green-tinted white, and is found by region rather than
   by row. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.4] - superseded by 1.8.0, never tagged on its own
+## [1.1.4] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
@@ -129,14 +145,14 @@ All notable changes to this cart are recorded here, newest first.
   than painted out, and the cap's bill goes with the hat in profile as well
   as facing down. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.3] - superseded by 1.8.0, never tagged on its own
+## [1.1.3] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
 - Wild Green re-pinned to `1.1.3`: the cap's bill goes with the hat instead
   of taking the face's colour. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.2] - superseded by 1.8.0, never tagged on its own
+## [1.1.2] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
@@ -146,7 +162,7 @@ All notable changes to this cart are recorded here, newest first.
   takes the `GAME FREAK` line green with it and is on a `TITLE FIGURE` row of
   its own. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.1] - superseded by 1.8.0, never tagged on its own
+## [1.1.1] - superseded by 1.9.0, never tagged on its own
 
 ### Changed
 
