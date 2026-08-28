@@ -4,16 +4,32 @@
 
 # Wild Green
 
-**Red, played as its own version.** A [custom cart][carts] for
-[gen1recomp][engine]: the [Gen1Wild][index] suite pinned whole, a player who
-is green, and a title screen that says `WILD GREEN VERSION`.
+**This is, I think, the definitive way to play Red.**
 
-The suite's two halves are [Gen1WildUI][ui] and [Gen1WildQOL][qol]. This is
-not a third half — it is those two, plus one more mod and one more of
-somebody else's, fixed at exact versions and given a name. A cart is not a
-mod pack you assemble: it is its own entry in the launcher, its own shell
-colour and label, its own save slots. Two people running Wild Green run the
-same mods at the same versions.
+Every quality-of-life and visual upgrade in the [Gen1Wild][index] suite, in
+one cart — and only the ones that still feel like Red. That was the whole
+filter. Sprinting, autosave, a Pokédex worth opening, a bag with pockets,
+battle backdrops, animated Crystal sprites, followers behind you: none of it
+turns this into a different game. It is the game you remember, with the parts
+that made you put it down taken out.
+
+**And you can catch every single one of them.** All 151, in one save, on one
+version, without trading — the legendaries retryable until you land them, the
+trade evolutions handled by an item, Mew behind the Mansion journals where it
+always should have been. Every vanilla encounter still behaves exactly as
+vanilla does; the missing species are placed around them, not on top of them.
+
+So if you are going for a 100% Kanto dex, or you just want Red to feel like a
+game made this decade, Wild Green is the most enjoyable way to do it.
+
+It is a [custom cart][carts] for [gen1recomp][engine]: the suite pinned
+whole, a player who is green, and a title screen that says
+`WILD GREEN VERSION`. The suite's two halves are [Gen1WildUI][ui] and
+[Gen1WildQOL][qol], and this is not a third half — it is those two, plus one
+more mod and one of somebody else's, fixed at exact versions and given a
+name. A cart is not a mod pack you assemble: it is its own entry in the
+launcher, its own shell colour and label, its own save slots. Two people
+running Wild Green run the same mods at the same versions.
 
 ## What is in it
 
