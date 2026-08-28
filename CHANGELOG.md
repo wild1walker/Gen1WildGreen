@@ -2,7 +2,26 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.1.4] - unreleased
+## [1.2.0] - unreleased
+
+### Changed
+
+- Wild Green re-pinned to `1.2.0`, which finally reaches the large sprites.
+  Crystal Animated Sprites — pinned here too — wraps `player.sprite` at
+  priority 930 and short-circuits the chain, and Wild Green's link took the
+  default `0`, so it was never called: the battle back pic, the trainer card,
+  Oak's intro and the Hall of Fame stayed red through every release from
+  1.0.0 on. It wraps at 940 now.
+
+  The two mods still cooperate everywhere else. The one place they no longer
+  do is the player's own portrait: on `PLAYER = GREEN` it is Wild Green's
+  recoloured vanilla art, so a portrait chosen in
+  `CRYSTAL SPRITES > PLAYER SPRITE` does not reach the player. `PLAYER = RED`
+  hands it back.
+- The cap's bill is a green-tinted white, and is found by region rather than
+  by row. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.1.4] - 2026-08-28
 
 ### Changed
 
