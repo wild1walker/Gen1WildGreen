@@ -2,7 +2,23 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.14.0] - 2026-08-28
+## [1.15.0] - 2026-08-28
+
+### Fixed
+
+- Wild Green re-pinned to `1.15.0`: the title screen's figure no longer
+  flashes back to Crystal's red bake. Holding it from `TitleState.
+  currentSprite` alone was not enough — the draw reads the figure into a
+  local before it calls `currentSprite`, and skips `currentSprite` entirely
+  for one phase of the title animation.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- `wild_green-1.15.0.zip` is `0caae99d…71e606e`, from the release's own
+  `sha256sums.txt`.
+
+## [1.14.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -18,7 +34,7 @@ All notable changes to this cart are recorded here, newest first.
 - `wild_green-1.14.0.zip` is `416b0a53…43b9f08`, from the release's own
   `sha256sums.txt`.
 
-## [1.13.0] - superseded by 1.14.0, never tagged on its own
+## [1.13.0] - superseded by 1.15.0, never tagged on its own
 
 ### Fixed
 
@@ -33,7 +49,7 @@ All notable changes to this cart are recorded here, newest first.
 - `wild_green-1.13.0.zip` is `b5d9655c…794d5ac`, from the release's own
   `sha256sums.txt`.
 
-## [1.12.0] - superseded by 1.14.0, never tagged on its own
+## [1.12.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -52,7 +68,7 @@ All notable changes to this cart are recorded here, newest first.
 - The mod's `1.11.1` is this same change released without its changelog or
   manifest bump; `1.12.0` is the one pinned here.
 
-## [1.11.0] - superseded by 1.14.0, never tagged on its own
+## [1.11.0] - superseded by 1.15.0, never tagged on its own
 
 ### Fixed
 
@@ -68,7 +84,7 @@ All notable changes to this cart are recorded here, newest first.
 - `wild_green-1.11.0.zip` is `7c0e946e…208964b`, from the release's own
   `sha256sums.txt`.
 
-## [1.10.0] - superseded by 1.14.0, never tagged on its own
+## [1.10.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -83,7 +99,7 @@ All notable changes to this cart are recorded here, newest first.
 - `wild_green-1.10.0.zip` is `fe7d9c4c…cc3088a`, from the release's own
   `sha256sums.txt`.
 
-## [1.9.0] - superseded by 1.14.0, never tagged on its own
+## [1.9.0] - superseded by 1.15.0, never tagged on its own
 
 ### Fixed
 
@@ -99,7 +115,7 @@ All notable changes to this cart are recorded here, newest first.
 
 - `wild_green-1.9.0.zip` is `5349ebe2…c38f497`, from the release's own `sha256sums.txt`.
 
-## [1.8.0] - superseded by 1.14.0, never tagged on its own
+## [1.8.0] - superseded by 1.15.0, never tagged on its own
 
 ### Fixed
 
@@ -118,7 +134,7 @@ All notable changes to this cart are recorded here, newest first.
 
 - `wild_green-1.8.0.zip` is `c7da33b4…6a701fa`, from the release's own `sha256sums.txt`.
 
-## [1.7.0] - superseded by 1.14.0, never tagged on its own
+## [1.7.0] - superseded by 1.15.0, never tagged on its own
 
 ### Fixed
 
@@ -144,7 +160,7 @@ All notable changes to this cart are recorded here, newest first.
 
 - `wild_green-1.7.0.zip` is `a27b00df…3df4f06`, from the release's own `sha256sums.txt`.
 
-## [1.5.0] - superseded by 1.14.0, never tagged on its own
+## [1.5.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -164,7 +180,7 @@ All notable changes to this cart are recorded here, newest first.
 - `PORTRAIT SKIN` is deliberately **not** frozen in the cart's pin, the same
   way `player` is not: both are the player's to choose.
 
-## [1.4.0] - superseded by 1.14.0, never tagged on its own
+## [1.4.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -187,7 +203,7 @@ All notable changes to this cart are recorded here, newest first.
   checked against the asset's digest a second time:
   `wild_green-1.4.0.zip` is `9ecdc422…5a9c62b`.
 
-## [1.3.0] - superseded by 1.14.0, never tagged on its own
+## [1.3.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -199,7 +215,7 @@ All notable changes to this cart are recorded here, newest first.
   list so a swap can never point at a picture the recipe did not write.
   See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.2.0] - superseded by 1.14.0, never tagged on its own
+## [1.2.0] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -218,7 +234,7 @@ All notable changes to this cart are recorded here, newest first.
 - The cap's bill is a green-tinted white, and is found by region rather than
   by row. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.4] - superseded by 1.14.0, never tagged on its own
+## [1.1.4] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -226,14 +242,14 @@ All notable changes to this cart are recorded here, newest first.
   than painted out, and the cap's bill goes with the hat in profile as well
   as facing down. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.3] - superseded by 1.14.0, never tagged on its own
+## [1.1.3] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
 - Wild Green re-pinned to `1.1.3`: the cap's bill goes with the hat instead
   of taking the face's colour. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.2] - superseded by 1.14.0, never tagged on its own
+## [1.1.2] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
@@ -243,7 +259,7 @@ All notable changes to this cart are recorded here, newest first.
   takes the `GAME FREAK` line green with it and is on a `TITLE FIGURE` row of
   its own. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.1] - superseded by 1.14.0, never tagged on its own
+## [1.1.1] - superseded by 1.15.0, never tagged on its own
 
 ### Changed
 
