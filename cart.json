@@ -20,6 +20,13 @@
       "sha256": "18959ac0f2a6769d1dec7246471b2b9eae9517edd512a7a425bd9bd3615f9027"
     },
     {
+      "id": "crystal_animated_sprites_with_shiny_visuals",
+      "source": "github",
+      "repo": "distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals",
+      "version": "2.0.2",
+      "sha256": "59b6204e66dc14c32b3035fea115236080dfc33ec86f928f04ac6974a1aca86c"
+    },
+    {
       "id": "gen1_wild_ui",
       "source": "github",
       "repo": "wild1walker/Gen1WildUI",
@@ -39,6 +46,7 @@
   ],
   "load_order": [
     "gen1_wild_qol",
+    "crystal_animated_sprites_with_shiny_visuals",
     "gen1_wild_ui",
     "wild_green"
   ]

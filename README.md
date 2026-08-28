@@ -19,10 +19,11 @@ mods at the same versions.
 |---|---|---|
 | <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_qol/thumbnail.png" width="54" alt=""> | **[Gen1WildQOL][qol]** `1.11.1` | The quality-of-life half: sprinting, autosave, auto continue, sound, followers, all 151, EXP share, menu layout, the mod manager and four later-generation conveniences. |
 | <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_ui/thumbnail.png" width="54" alt=""> | **[Gen1WildUI][ui]** `1.12.0` | The visual half: battle backdrops, the battle intro, the Pokédex, the box, the party menu, the bag, item icons and descriptions, the lift panel. |
+| | **[Crystal Animated Sprites with Shiny Visuals][crystal]** `2.0.2` | Crystal animated battle sprites, Gen 2-style shiny reveals with the cry held until the sparkle finishes, and swappable trainer portraits. Somebody else's mod, pinned unmodified. |
 | | **[Wild Green][mod]** `1.0.0` | The version itself: the player in green, and `WILD GREEN VERSION` on the title screen. Written for this cart. |
 
 The seal is **`sealed+`**: the mod set is fixed, and you may switch any of the
-three off. That is deliberate — a cart that cannot be taken apart is a cart
+four off. That is deliberate — a cart that cannot be taken apart is a cart
 you cannot play your own way, and every feature in both bundles already
 switches on and off by itself.
 
@@ -156,8 +157,8 @@ repo of any mod it pins.
 - **[Gen1Wild][index]** — the suite this is the version of, and the wordmark
   on the label.
 - **distilledorion-sketch** — [Crystal Animated Sprites with Shiny
-  Visuals][crystal], which Wild Green is meant to sit beside rather than
-  replace. It is an optional dependency, not a fork; its art stays its own.
+  Visuals][crystal], pinned here unmodified rather than forked. Wild Green
+  sits beside it and does not touch its art or its `PLAYER SPRITE` row.
 - **[Gen1Recomp][engine]** — the engine, the cart format, and the
   asset-transform sandbox the recolor runs in.
 - **pret** — the disassemblies underneath all of it.
