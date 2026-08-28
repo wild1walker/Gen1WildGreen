@@ -2,7 +2,14 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.1.2] - unreleased
+## [1.1.3] - unreleased
+
+### Changed
+
+- Wild Green re-pinned to `1.1.3`: the cap's bill goes with the hat instead
+  of taking the face's colour. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+## [1.1.2] - 2026-08-28
 
 ### Changed
 
