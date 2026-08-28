@@ -2,6 +2,36 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.24.0] - 2026-08-28
+
+### Changed
+
+- **The seal is `sealed` rather than `sealed+`, so the cart can be taken
+  online.** The engine's online mode only ever offers a cart whose seal is
+  exactly `sealed`: the launcher's ONLINE tab filters its game list on it
+  (`OnlinePanel.sealedCarts`), the arena refuses to build a profile without it
+  (`ArenaData.profile`), and the arena loader refuses to boot without it
+  (`Loader:_arenaCart`). Under `sealed+` Wild Green did not fail with a
+  message, it simply never appeared in the tab.
+
+  What it costs: the four pinned mods can no longer be switched off one by
+  one. Breaking the seal on a save slot is still there for playing the cart
+  with your own mods on top, and a save with a broken seal cannot go online
+  either way. Every feature switch inside the four is unaffected, and so is
+  everything else about how the cart plays.
+
+  This is only a seal change. No pin moved, and `wild_green` stays at
+  `1.23.0`.
+
+### Notes
+
+- The version bump is not ceremony. The cart's manifest hash covers `seal`,
+  and online play matches players on that hash, so a `sealed` cart still
+  calling itself `1.23.0` would be a second, different `1.23.0` in the wild.
+- `engine` is left at `>=0.1.37 <2.0.0`. The seal costs an older build
+  nothing, and raising the floor to whichever release added the ONLINE tab
+  would lock out players who have no use for it.
+
 ## [1.23.0] - 2026-08-28
 
 ### Fixed
