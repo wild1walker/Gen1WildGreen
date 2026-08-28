@@ -2,7 +2,30 @@
 
 All notable changes to this cart are recorded here, newest first.
 
-## [1.3.0] - unreleased
+## [1.4.0] - 2026-08-28
+
+### Changed
+
+- Wild Green re-pinned to `1.4.0`: the title screen's standing figure is
+  green under `ADVANCED`, which is the one place he had stayed red through
+  every release. `ADVANCED` does not run the SGB zone pass over his
+  rectangle, so the `MEWMON` override could never reach him — and Crystal
+  Animated Sprites, pinned here, bakes his grey art to Red's own colours
+  there. Wild Green now wraps `TitleState.currentSprite` outside that
+  wrapper and re-bakes him in the trainer card's ramp.
+  See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+### Notes
+
+- This is the first cart tag since `v1.1.0`, so it carries `1.2.0` and
+  `1.3.0` with it — the 940 priority fix that reached the large sprites, the
+  green-tinted bill, and the trainer art's own ramp. Nothing in the cart
+  itself changed across those three but the `wild_green` pin.
+- The pin's digest is the one the release's own `sha256sums.txt` publishes,
+  checked against the asset's digest a second time:
+  `wild_green-1.4.0.zip` is `9ecdc422…5a9c62b`.
+
+## [1.3.0] - superseded by 1.4.0, never tagged on its own
 
 ### Changed
 
@@ -14,7 +37,7 @@ All notable changes to this cart are recorded here, newest first.
   list so a swap can never point at a picture the recipe did not write.
   See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.2.0] - 2026-08-28
+## [1.2.0] - superseded by 1.4.0, never tagged on its own
 
 ### Changed
 
@@ -33,7 +56,7 @@ All notable changes to this cart are recorded here, newest first.
 - The cap's bill is a green-tinted white, and is found by region rather than
   by row. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.4] - 2026-08-28
+## [1.1.4] - superseded by 1.4.0, never tagged on its own
 
 ### Changed
 
@@ -41,14 +64,14 @@ All notable changes to this cart are recorded here, newest first.
   than painted out, and the cap's bill goes with the hat in profile as well
   as facing down. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.3] - 2026-08-28
+## [1.1.3] - superseded by 1.4.0, never tagged on its own
 
 ### Changed
 
 - Wild Green re-pinned to `1.1.3`: the cap's bill goes with the hat instead
   of taking the face's colour. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.2] - 2026-08-28
+## [1.1.2] - superseded by 1.4.0, never tagged on its own
 
 ### Changed
 
@@ -58,7 +81,7 @@ All notable changes to this cart are recorded here, newest first.
   takes the `GAME FREAK` line green with it and is on a `TITLE FIGURE` row of
   its own. See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
 
-## [1.1.1] - 2026-08-28
+## [1.1.1] - superseded by 1.4.0, never tagged on its own
 
 ### Changed
 
@@ -68,6 +91,10 @@ All notable changes to this cart are recorded here, newest first.
   palette onto it and gives it no `trueColor` seam, so recoloured art came
   back white and pink. The ribbon carries that screen on its own.
   See [its changelog](https://github.com/wild1walker/Gen1MakeItGreen/blob/main/CHANGELOG.md).
+
+  **That reason is wrong, and 1.4.0 says so.** The white-and-pink figure was
+  Crystal Animated Sprites' own luminance bake reading Wild Green's art, not
+  the engine's shade buckets.
 
 ## [1.1.0] - 2026-08-28
 
