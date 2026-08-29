@@ -2,6 +2,47 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.26.0] - 2026-08-29
+
+### Changed
+
+- **Every setting in the cart is one row on the game's own OPTION screen now.**
+  It is called `WILD GREEN` -- the cart's own title, read from the cart -- and
+  it sits next to `MODS`.
+
+  Before this the settings were at `MODS > GEN1WILD QOL > OPTIONS` and
+  `MODS > GEN1WILD UI > OPTIONS`: two lists, three screens deep each, behind
+  names that are repositories rather than things, and with a guess about which
+  of the two owned the row you wanted. Now there is one door and one list.
+
+  Behind it are folder cards, the same way the game's own OPTION screen nests
+  `SPEED`, `VIDEO` and `AUDIO`. `OUT IN THE WORLD`, `YOUR POKEMON`, `BATTLES`,
+  `ITEMS AND BAG`, `SAVING AND SOUND`, `MOD SETUP`, and one more:
+  **`OTHER MODS`, which holds the rest of what this cart pins** -- Make It
+  Green and the animated sprites -- so every pinned mod's settings are on the
+  same screen as everything else rather than three screens away in the
+  manager.
+
+  Nothing was removed. Every switch that existed still exists, in the same
+  place in the tree, with the same stored value.
+
+- **Gen1WildQOL 1.12.0 -> 1.13.0** and **Gen1WildUI 1.13.0 -> 1.14.0.** Those
+  two carry the menu above, and between them four fixes that came forward from
+  their own mods:
+
+  - `AUTO SAVE` writes during a loading screen -- a warp's fade, a battle's
+    return hold -- instead of stuttering in the middle of walking. Loading
+    screens are a few frames longer; the hitch on the route is gone.
+  - Followers are drawn at the size their art was drawn at. Small species were
+    being resampled from 16px down to 11px and coming out as flat two-colour
+    blobs.
+  - Professor Oak stops hopping on the walk to his lab. Sprint made your step
+    length depend on what you were holding, and his was pinned to yours at the
+    start of the walk.
+  - Pale battle sprites stop turning into a white box over a backdrop.
+
+  No other pin moved.
+
 ## [1.25.0] - 2026-08-29
 
 ### Changed
