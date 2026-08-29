@@ -2,6 +2,37 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.31.0] - 2026-08-29
+
+### Changed
+
+- **`OPTIONS > MODS` is now `OPTIONS > WILD GREEN`.** The suite's row used to
+  sit next to the game's own `MODS` row. It takes that row's place instead.
+
+  Two rows on one screen that both mean "the mods" is a choice with no right
+  answer. `MODS` opens the list of installed mod zips, which is almost never
+  what somebody on the OPTION screen is after: with this cart running, nearly
+  everything behind that row is this suite's, and what they came for is a
+  setting. So the suite's row takes the slot, and it is named after the cart --
+  `WILD GREEN`.
+
+  `START > MODS` goes to the same place, so the route you already know still
+  works and no longer lands somewhere different from the one on `OPTIONS`.
+
+  The mod list is not gone, it is one press further in: `MOD MANAGER` is the
+  last row of the Wild Green menu, and says how many mods are installed.
+
+- **The folder cards are named for what is on them.** `OUT IN THE WORLD`,
+  `YOUR POKEMON`, `BATTLES`, `SAVING & SOUND` and `MOD SETUP` are now
+  `GENERAL`, `POKEMON`, `BATTLE`, `ITEMS`, `SAVE` and `INTERFACE`. A card is a
+  signpost; one written to sound like something is one you have to read twice.
+  `AUTO CONTINUE` moves to `SAVE`, where picking up where you left off belongs.
+
+  Nothing that a setting depends on moved. Every switch keeps the value it had.
+
+  Gen1WildQOL 1.16.1 -> 1.17.0, Gen1WildUI 1.14.1 -> 1.15.0. No other pin
+  moved.
+
 ## [1.30.1] - 2026-08-29
 
 ### Fixed
