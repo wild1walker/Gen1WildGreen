@@ -2,6 +2,22 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.31.1] - 2026-08-29
+
+### Fixed
+
+- **The black screen plays out when you walk through a door.** 1.30.1 fixed
+  half of this and shipped with the other half still in: the autosave was
+  treating the warp fade as the quietest frame it could possibly take, which is
+  backwards. A fade is an animation -- thirty-two steps of the palette walking
+  down to black -- and stopping for a fifth of a second in the middle of one is
+  a stall you can watch happen. It now stands off transitions outright, and the
+  clamp that stops the frame after a save being paid back as a burst is armed
+  properly rather than by a check that never once fired.
+
+  Gen1WildQOL 1.17.0 -> 1.17.1 (Gen1AutoSave 1.13.0 -> 1.13.1). No other pin
+  moved.
+
 ## [1.31.0] - 2026-08-29
 
 ### Changed
