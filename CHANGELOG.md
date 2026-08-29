@@ -2,6 +2,33 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.32.0] - 2026-08-29
+
+### Fixed
+
+- **The black screen plays out when you walk through a door.** For real this
+  time, and the last two attempts were fixing the wrong end of it.
+
+  The autosave was writing on `map.entered` -- the moment the new map is in
+  place, which is the *end* of the warp's animation, not the start of it. The
+  fade to black has already played by then, and the fade back is zero steps
+  long: the map simply appears. So the write had the whole cost of a save in
+  front of it and no animation left to hide under. Clamping the frame
+  afterwards, twice, could not help, because there was nothing after it.
+
+  It now writes on the first frame of the fade it can, with all thirty-two
+  steps of the palette walking down to black still to come. The black screen is
+  longer by exactly what the save cost, and the animation plays. Entering a map
+  is still the fallback for a door whose fade was never writable.
+
+  A second one alongside it: the gate an ordinary due save goes through asked
+  whether something was over the overworld before it asked whether that
+  something was a transition -- and a transition is something over the
+  overworld -- so a save that was merely due could land mid-fade as well.
+
+  Gen1WildQOL 1.17.1 -> 1.18.0 (Gen1AutoSave 1.13.1 -> 1.14.0). No other pin
+  moved.
+
 ## [1.31.1] - 2026-08-29
 
 ### Fixed
