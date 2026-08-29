@@ -2,6 +2,42 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.37.0] - 2026-08-29
+
+### Added
+
+- **`A` on the AREA map flies you there.** The AREA screen *is* the town map.
+  If your party can `FLY` and the cursor is over somewhere flyable, closing it
+  to open the START menu and pick `FLY` to reach the same picture again is the
+  screen being pedantic about which door you came in by. With the hint down,
+  `A` over a flyable town is the flight.
+
+  Which towns qualify is the game's own rule — visited, has a fly warp, is a
+  fly town — so a town this says yes to is one the `FLY` screen would have
+  offered you. No `FLY` in the party, indoors, the cursor on somewhere
+  unflyable: any of them and `A` closes the screen the way it always did. New
+  row: `FLY FROM AREA`.
+
+- **`MAP ON SELECT`** puts the town map on the `SELECT` field menu, outdoors.
+  Off by default — that menu earns its place by being short and by being only
+  what is usable where you are standing.
+
+- **The `SELECT` field menu is arrangeable.** `MENU LAYOUT` could arrange the
+  START menu and the PC menu; the field menu — `FLY`, `TELEPORT`, `FLASH`,
+  `DIG`, a repel, and now `MAP` — was the one menu in front of you it could not
+  touch, because that menu is not the game's and has no hook to wrap. It is
+  built fresh on every press out of what is usable on this tile, with this
+  party, in this bag, so the mod that builds it now hands the rows round and
+  the manager takes its turn.
+
+  There are three menus now and one row on the OPTION screen, so **LEFT and
+  RIGHT walk between them in the editor**. `CANCEL` is locked on the field
+  menu: `B` closes it too, but a way out you can *see* is not the same as one
+  you have to know about. New row: `SELECT ROW`, off by default.
+
+  Gen1WildQOL 1.19.0 -> 1.21.0, Gen1WildUI 1.18.0 -> 1.19.0 (Gen1Dex 1.8.0 ->
+  1.9.0, Gen1MenuManager 0.2.8 -> 0.3.0). No other pin moved.
+
 ## [1.36.0] - 2026-08-29
 
 ### Changed
