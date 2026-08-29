@@ -2,6 +2,36 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.38.0] - 2026-08-29
+
+### Fixed
+
+- **`MAP` had two switches and only one of them worked.** The layout editor
+  listed `MAP` on the `SELECT` menu, said `ON`, and turning it on did nothing —
+  what was actually keeping the row off was a separate option two screens away.
+  A row that reads `ON` and is not there is worse than a row you did not ask
+  for.
+
+  That option is gone. The town map is offered outdoors like every other row on
+  that menu, and the editor is the switch: hide it there and it is gone.
+
+- **A row the menu is not offering no longer reads `ON`.** Switching on `FLY`
+  in the editor cannot put `FLY` on the menu when what is keeping it off is the
+  game and not the layout — no `FLY` in the party, no repel in the bag,
+  daylight. Those read `----` now, the same as a pinned row you have not
+  unlocked.
+
+- **The editor's empty page ran off its own box**, and its title carried two
+  characters the Game Boy font cannot draw. `NOTHING TO ARRANGE` is exactly
+  eighteen glyphs and the box's interior is eighteen tiles, so starting it a
+  column in put the last two on the border — which is the overlap on the PC
+  page. And `<` and `>` are in no Game Boy charmap, so the arrows drew as
+  nothing and only pushed the title right; the page count (`1/3`) says the same
+  thing in glyphs the font has.
+
+  Gen1WildQOL 1.21.1 -> 1.22.0, Gen1WildUI 1.19.1 -> 1.19.2
+  (Gen1MenuManager 0.3.1 -> 0.3.2). No other pin moved.
+
 ## [1.37.1] - 2026-08-29
 
 ### Fixed
