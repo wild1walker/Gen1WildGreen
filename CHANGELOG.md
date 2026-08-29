@@ -2,6 +2,30 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.34.0] - 2026-08-29
+
+### Changed
+
+- **`AUTO SAVE` no longer writes while a menu is up.** The widest window it had
+  was anything over the overworld: a text box while somebody talks, the START
+  menu, the bag, the party, a PC, a mart, a Centre's heal. The reasoning was
+  that you cannot move under one and the map behind is a still picture, so a
+  dropped frame there is a frame nobody sees.
+
+  Nobody sees it. You feel it. A menu is not a pause in the playing — it is the
+  part with the most presses per second in it, and a frame lost there is an
+  *input* lost there. A stutter mid-stride is ugly; a swallowed `A` press is
+  the game not listening.
+
+  The doors are the three they always were: a warp, the end of a battle, and
+  actually stopping. The moment a menu *closes* is still one of them — by then
+  it is gone and you are standing on the route with nothing pressed. Closing is
+  the moment, not opening. Writes that go under a screen you cannot press
+  through, like a door's black screen, are unaffected.
+
+  Gen1WildQOL 1.18.0 -> 1.19.0 (Gen1AutoSave 1.14.0 -> 1.15.0). No other pin
+  moved.
+
 ## [1.33.1] - 2026-08-29
 
 ### Fixed
