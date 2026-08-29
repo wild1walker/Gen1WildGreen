@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "wild_green",
   "title": "Wild Green",
-  "version": "1.25.0",
+  "version": "1.26.0",
   "author": "wild1walker",
   "repo": "wild1walker/Gen1WildGreen",
   "summary": "Red, played as its own version: the Gen1Wild suite pinned whole, and a green player.",
@@ -16,8 +16,8 @@
       "id": "gen1_wild_qol",
       "source": "github",
       "repo": "wild1walker/Gen1WildQOL",
-      "version": "1.12.0",
-      "sha256": "8536dee3fc05ba7112813eeceb324b79af58e41aedd5ca48df81a12ce5b30c98"
+      "version": "1.13.0",
+      "sha256": "a37fce4b44ea6545f0cd9590f7584039d3099813196108b0adce98b78db96775"
     },
     {
       "id": "crystal_animated_sprites_with_shiny_visuals",
@@ -30,8 +30,8 @@
       "id": "gen1_wild_ui",
       "source": "github",
       "repo": "wild1walker/Gen1WildUI",
-      "version": "1.13.0",
-      "sha256": "970fae0bc8baefaaf4633fff2d7df55366a6c7bb917b43f0c026628ce72738f0"
+      "version": "1.14.0",
+      "sha256": "21a93d01542a113b83349c18aa5dbfb6ed2cb4864a6aeedede48acf693b64bd7"
     },
     {
       "id": "wild_green",
