@@ -2,6 +2,33 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.39.0] - 2026-08-29
+
+### Fixed
+
+- **Your settings survive a reboot, and the cart stays sealed.** Every setting
+  in the suite was resetting on the next launch, and `PLAYER` could never take
+  effect at all — you would set RED, it would say "RED CHANGED.", and the game
+  would come back green with the row reading GREEN again.
+
+  That is what a sealed cart does. The loader rebuilds every pinned mod's
+  options on each boot out of what the cart pins and discards what you chose;
+  and the overworld walker is a record read at load, which is exactly when the
+  choice was being thrown away.
+
+  Unsealing would have fixed it and cost you the arena — online play requires
+  the seal, and requires it to be exactly `sealed`. So the suite remembers what
+  you chose in its own store, which that rebuild does not touch, and puts it
+  back as it loads, before anything reads it. It restores into the same place
+  the mod manager reads, so every screen agrees, and it never touches the cart
+  file, which is what online matches on.
+
+  The cart's pins are now defaults rather than locks: a pinned value is what
+  you get until you choose otherwise.
+
+  Gen1WildQOL 1.22.0 -> 1.23.0, Gen1WildUI 1.19.2 -> 1.20.0. No other pin
+  moved.
+
 ## [1.38.0] - 2026-08-29
 
 ### Fixed
