@@ -2,6 +2,33 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.30.0] - 2026-08-29
+
+### Changed
+
+- **Your save now reaches your account as soon as it reaches the disk.**
+
+  The autosave used to pace its uploads: one every five minutes, with every
+  other save's upload *thrown away* and the file left for the engine's own
+  sweep to collect whenever it next came round. That was written back when a
+  sync meant a visible stall — and it bought cheapness at the price of the save
+  being current. The newest file could sit on this device for minutes while
+  another device was still being handed the old one.
+
+  The stall it was avoiding turned out not to be the sync at all (it was the
+  collector burst, fixed in cart 1.28.0), so there is nothing left to avoid.
+  The upload now goes with **every** save, and it goes **immediately** rather
+  than waiting out the engine's five-second debounce — which only ever moved
+  the request off the black screen it could have left from and into the middle
+  of the next corridor.
+
+  **The loading screen is slightly longer for it.** That is the trade, and it
+  is the right way round: the save you just made is on the server before you
+  are walking again.
+
+  Gen1WildQOL 1.15.0 -> 1.16.0 (Gen1AutoSave 1.11.0 -> 1.12.0). No other pin
+  moved.
+
 ## [1.29.0] - 2026-08-29
 
 ### Changed
