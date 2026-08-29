@@ -2,6 +2,40 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.40.0] - 2026-08-29
+
+### Fixed
+
+- **POKeMON evolve again.** Nothing on this cart ever did — not the starter at
+  level 16, not anything else — and nothing on screen said why.
+
+  BLACK OUTRO fades a battle out by wrapping the one place a battle ends. But
+  the engine calls that place more than once: a battle that levelled somebody
+  hands the battle screen to the evolutions and *returns*, coming back a
+  second time once they have played. The fade took that first call for the
+  ending — it ran the engine's finish at its own midpoint, at full black, so
+  the evolution started behind the black, and then, finding the battle still
+  up because that call had not left, popped what was on top of it and ended
+  the battle for real. What it popped was the evolution.
+
+  The hand-off is a false start, the same as the PAY DAY pickup the fade
+  already steps aside for. It steps aside for this one now, so the evolution
+  plays on the battle screen where the ROM puts it. (Gen1WildUI 1.20.1.)
+
+- **The follower stops walking out of doors into the building, and stops
+  standing on people.** The engine tells its follower routine whether a map is
+  being entered — a warp, a door, the boot — or respawned mid-map, and the two
+  put the follower in different squares: an entry parks it on the player's own
+  cell so it comes out of the doorway behind him, a respawn takes the cell
+  behind his facing. That argument was being dropped, so every door read as a
+  respawn — and stepping outside, the player faces down, which put the
+  follower on the cell he had just come through.
+
+  It also no longer arrives on top of an NPC: the spawn rule asks the map
+  whether a cell is walkable, which somebody standing on it does not change,
+  so an occupied cell now hands the follower back to the player's own.
+  (Gen1WildQOL 1.23.1, Gen1Follower 1.5.1.)
+
 ## [1.39.0] - 2026-08-29
 
 ### Fixed
