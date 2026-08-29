@@ -2,6 +2,31 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.26.2] - 2026-08-29
+
+### Fixed
+
+- **The stutter a few seconds after a save is gone too.** 1.26.1 stopped the
+  save itself landing while you run, and that held. The write is the cheap
+  half: the expensive one is the sync cycle it wakes, which arrives a few
+  seconds later on network time and decodes every save slot of every game
+  version through a character-at-a-time parser. That is the hitch that was
+  still showing up "a little after a save".
+
+  `QUIET SYNC` has been holding that out of walking frames all along, and it
+  was leaking through the same two holes the write had: it read a flag that
+  drops for the single frame between two strides, and it gave up after three
+  seconds without ever checking that you had stopped.
+
+  A held direction counts as walking now, and there is no cap — the reply is
+  already in hand, the engine's clock stops with the hold, and letting go of
+  the pad releases it on the next frame. Any menu, text box, battle or doorway
+  releases it immediately as well. The collector work a finished cycle leaves
+  behind waits for the same kind of frame.
+
+  Gen1WildQOL 1.13.1 -> 1.13.2 (Gen1AutoSave 1.7.0 -> 1.8.0). No other pin
+  moved.
+
 ## [1.26.1] - 2026-08-29
 
 ### Fixed
