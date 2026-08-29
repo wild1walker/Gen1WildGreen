@@ -2,6 +2,41 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.27.0] - 2026-08-29
+
+### Changed
+
+- **The autosave now hides itself in the moments you could not move in
+  anyway,** and it no longer mistakes a pause for a stop.
+
+  Standing still was one frame of not walking — so letting go of the pad to
+  change direction, or lining up on a doorway, counted as standing still, and
+  the save landed in the middle of a walk. A stop is three unbroken seconds
+  now, or the moment a menu closed or a conversation ended and you have not
+  started moving again.
+
+  And there are far more windows than there were. A warp and the end of a
+  battle were the only two; now **any moment the game is holding you still** is
+  one: a battle starting, a text box while somebody talks, the START menu, the
+  bag, the party, a PC, a mart, a Centre's heal. None of those is a named
+  special case — anything over the overworld is something you cannot move
+  through, so the rule covers the ones nobody thought of too.
+
+  Two are deliberately not windows. Nothing is written **inside** a battle —
+  Gen 1 has no save there, and the file would record the overworld the fight
+  started from while you are somewhere else — and nothing is written part-way
+  through a script, because a cutscene that has set half its flags is not a
+  state worth writing down. The moment a script *ends* is a window.
+
+  Finally, the save and the sync take **different** windows rather than sharing
+  one. The write is cheap and takes the first opportunity; the sync cycle it
+  wakes is expensive and does not arrive for a few seconds, so it takes
+  whatever window comes next. You walk out of a door, it saves there, and the
+  sync lands at the next door, the next battle, or the next conversation.
+
+  Gen1WildQOL 1.13.2 -> 1.14.0 (Gen1AutoSave 1.8.0 -> 1.9.0). No other pin
+  moved.
+
 ## [1.26.3] - 2026-08-29
 
 ### Fixed
