@@ -2,6 +2,25 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.33.1] - 2026-08-29
+
+### Fixed
+
+- **The AREA screen ends on the map.** 1.33.0 took the `AREA UNKNOWN` slab down
+  while the hint strip was up and put it back the moment `A` dismissed the
+  strip — so pressing `A` for a clear look at the map got you a slab across the
+  middle of it instead. That was backwards. The route is the dex, then
+  `<NAME> UNKNOWN`, then the map, and the map is where it ends. The slab is
+  gone from every frame of that screen now.
+
+- **Your marker is on that map.** It lives in the same branch the slab was the
+  other half of: with no nests to mark, the original puts the slab up *instead*
+  of marking where you are standing. That trade made sense while the slab
+  covered the map. With it gone the screen is a plain town map, and a plain
+  town map has you on it.
+
+  Gen1WildUI 1.16.0 -> 1.16.1 (Gen1Dex 1.6.0 -> 1.6.2). No other pin moved.
+
 ## [1.33.0] - 2026-08-29
 
 ### Fixed
