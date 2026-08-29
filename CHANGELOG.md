@@ -2,6 +2,30 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.37.1] - 2026-08-29
+
+### Fixed
+
+- **The layout editor drew a hint over its own frame.** 1.37.0 put the
+  `< >:MENU` hint on the row below the existing one, which is the box's bottom
+  border rather than an interior row, so it came out as a smear across the
+  frame. There is one line for hints and it was already full. The arrows are on
+  the title now: `< START MENU >`.
+
+- **The `SELECT` menu's editor listed only rows it had already seen.** That
+  menu's rows appear only where they are usable — `FLY` outdoors, `FLASH` in
+  the dark, a repel while one is in the bag — so arranging `FLY` would have
+  meant standing outdoors, with `FLY` in the party, holding the editor open.
+  A menu whose editor shows one row is not an editor.
+
+  It now lists every row that menu can *ever* show — `FLY`, `TELEPORT`,
+  `FLASH`, `DIG`, `MAP`, a repel, `CANCEL` — whether or not it is usable where
+  you are standing, so they can be ordered and switched off in advance the way
+  a pinned row is.
+
+  Gen1WildQOL 1.21.0 -> 1.21.1, Gen1WildUI 1.19.0 -> 1.19.1
+  (Gen1MenuManager 0.3.0 -> 0.3.1). No other pin moved.
+
 ## [1.37.0] - 2026-08-29
 
 ### Added
