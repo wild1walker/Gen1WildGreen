@@ -36,9 +36,15 @@ base Red saves. Two people running Wild Green are running the same game.
 | | **[Crystal Animated Sprites with Shiny Visuals][crystal]** | Crystal animated battle sprites, Gen 2-style shiny reveals, and swappable trainer portraits. Somebody else's mod, pinned as it is. |
 | | **[Wild Green][mod]** | The version itself: the player in green wherever the game draws him, and `WILD GREEN VERSION` on the title screen. Written for this cart. |
 
-The mod set is sealed — you cannot add to it — but every one of the four can
-still be switched off, and every feature inside them is still a switch you can
-flip. A cart you could not play your own way would miss the point.
+The mod set is sealed: these four run exactly as pinned, and nothing can be
+added to them or taken out. That is what makes the cart playable online, where
+both sides have to be running the same game; the launcher's **ONLINE** tab
+lists sealed carts and nothing else. Every feature inside the four is still a
+switch you can flip, so the cart is still yours to play your own way.
+
+If you want it with your own mods instead, break the seal on a save slot from
+the cart's page. That save loads the pinned four first and then everything else
+you have enabled. It is marked modified, and it cannot go online.
 
 The green is derived from Red's own art rather than shipped, so switching back
 to `PLAYER = RED` gives you the original character with nothing to reinstall.
