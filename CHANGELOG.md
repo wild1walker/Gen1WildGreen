@@ -2,6 +2,28 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.26.1] - 2026-08-29
+
+### Fixed
+
+- **The autosave hitch while running is gone for real.** 1.26.0 moved the save
+  onto the black screens a warp and the end of a battle already put up, and
+  that part worked -- but two things in it still let a write land on a moving
+  screen, which is the whole thing it was meant to stop.
+
+  A 45-second cap gave up on waiting and wrote on the route without ever
+  checking that you had stopped walking. And the check that was supposed to
+  keep a write off a moving player read a flag that drops for the single frame
+  between two strides, so walking a long route without stopping satisfied it
+  several times a second -- which is exactly where a dropped frame shows.
+
+  Standing still is what counts now, and a held direction is not standing
+  still. The cap is gone with it: a save that is due waits for a warp, the end
+  of a battle, or for you to stop, and there is no fourth way out.
+
+  Gen1WildQOL 1.13.0 -> 1.13.1 (Gen1AutoSave 1.6.0 -> 1.7.0). No other pin
+  moved.
+
 ## [1.26.0] - 2026-08-29
 
 ### Changed
