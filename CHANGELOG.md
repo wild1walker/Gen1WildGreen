@@ -2,6 +2,33 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.26.3] - 2026-08-29
+
+### Fixed
+
+- **The white box behind a POKéMON in battle is gone.** It was two bugs at once,
+  and the reason it survived a fix is that neither of them happens on a
+  desktop.
+
+  The backdrop mod repairs sprites the cart's own extractor hollowed out, by
+  laying the field shade back under them. To decide which sprites need that it
+  reads their pixels back off a scratch canvas — and that canvas takes the
+  screen's DPI scale unless it is told not to. On a phone that is 3, so it read
+  the sprite's top-left *eighteen* pixels blown up three times and answered on
+  a corner: few enough colours to look like flat art, empty enough to look
+  damaged. The white patch then went down in a box measured off that corner,
+  which on the enemy side is a 14x24 block against the right edge of the
+  sprite — exactly what the photo showed.
+
+  And the test for "this sprite lost something" was how much of its box is
+  empty, which reads an awkward shape as a damaged one. A Crystal Koffing is
+  solid on all nine of its animation frames, but the three that put its gas
+  plume out score 0.51 against 0.26 for the other six — so the patch blinked on
+  and off behind a perfectly healthy sprite once per animation cycle. It now
+  measures a hole *through* the mon, which is the thing it exists to fill.
+
+  Gen1WildUI 1.14.0 -> 1.14.1 (Gen1Arena 0.20.2 -> 0.21.0). No other pin moved.
+
 ## [1.26.2] - 2026-08-29
 
 ### Fixed
