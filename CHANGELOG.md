@@ -2,6 +2,32 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.35.0] - 2026-08-29
+
+### Fixed
+
+- **The town map moves by direction instead of cycling a list.** `UP` and
+  `DOWN` fell back to the game's own list walk whenever there was nothing in
+  the direction you pressed — and a press off any edge of Kanto, of which there
+  are four edges' worth, jumped the cursor to wherever the *cursor order* went
+  next. That order is the order the towns come up in the story, not where they
+  are, so the cursor leapt across the map for reasons nothing on screen could
+  explain. A key with nothing in front of it now leaves the cursor where it is.
+
+### Changed
+
+- **The map you open from the bag is steered the same way.** Same screen, same
+  picture, and until now a different d-pad: the original walks its cursor along
+  the visit order with `UP` and `DOWN` and ignores `LEFT` and `RIGHT` entirely.
+  One map should navigate one way however it was opened.
+
+  Only the d-pad. `B` still closes both, the name strip is still the game's own,
+  and `FLY` is left alone — its cursor cycles the towns you have visited in fly
+  order and `A` flies to the one it is on, so direction is not what that d-pad
+  means there.
+
+  Gen1WildUI 1.16.1 -> 1.17.0 (Gen1Dex 1.6.2 -> 1.7.0). No other pin moved.
+
 ## [1.34.0] - 2026-08-29
 
 ### Changed
