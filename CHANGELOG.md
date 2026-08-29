@@ -2,6 +2,28 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.30.1] - 2026-08-29
+
+### Fixed
+
+- **Walking through a door no longer skips the fade.** The autosave landing
+  under the black screen was cutting it short, so you popped into the new map
+  instead of fading in.
+
+  It was not the save being slow. The game advances its logic in whole 1/60
+  steps out of an accumulator, so a frame that took an extra 60 ms hands the
+  next update a 60 ms `dt`, and the accumulator pays that back as four logic
+  steps in a row before anything is drawn again. Four steps of a fade in one
+  frame is a cut, not a fade.
+
+  The engine has a remedy for its own hitches and it turns out warps do not use
+  it — its own source says so. The autosave now applies it after anything of
+  its own that costs a frame, so the loading screen is a little longer and the
+  animation plays out properly.
+
+  Gen1WildQOL 1.16.0 -> 1.16.1 (Gen1AutoSave 1.12.0 -> 1.13.0). No other pin
+  moved.
+
 ## [1.30.0] - 2026-08-29
 
 ### Changed
