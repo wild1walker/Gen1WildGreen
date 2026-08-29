@@ -2,6 +2,30 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.32.1] - 2026-08-29
+
+### Fixed
+
+- **The Pokédex side menu has a box again.** Pressing A on a POKéMON you had
+  met came up as four bare words -- `DATA`, `CRY`, `AREA` -- floating over the
+  list, with `QUIT` printed across the SEEN and OWN counts and past the bottom
+  of the screen. Pressing A on one you had *not* met opened a properly framed
+  two-row menu, which is what made it look like the discovered entries were the
+  broken ones.
+
+  Both were the same omission. The original dex prints those four labels
+  permanently into the block down the right of its screen, so the menu itself
+  draws only the labels and the cursor -- there is already a block under them.
+  The redrawn list has no such block: the right of the screen is where the
+  names run, and SEEN / OWN moved into a footer box.
+
+  The menu is now put in a box of the mod's own, sized to fit above the footer,
+  and the row it was opened on reads as hollow underneath it the way the
+  original list draws it. What the rows do is unchanged -- they are the game's
+  own, not copies.
+
+  Gen1WildUI 1.15.0 -> 1.15.1 (Gen1Dex 1.5.2 -> 1.5.3). No other pin moved.
+
 ## [1.32.0] - 2026-08-29
 
 ### Fixed
