@@ -2,6 +2,59 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.24.0] - 2026-08-29
+
+### Fixed
+
+Four bugs you could see, and a tidier option screen. Re-pinned to
+`Gen1WildQOL` `1.12.0` and `Gen1WildUI` `1.13.0`.
+
+- **The starter you could not pick.** Oak shows the Pokédex entry for a starter
+  before he asks whether you want it, and the script waits for that screen to
+  close itself. The entry's `A` key cycled its three pages forever, so pressing
+  `A` at the CHARMANDER you had just been offered gave you a third page and
+  then the first one back, and nothing ever asked you anything. `A` now walks
+  the entry once and leaves it, which is what hands the question back. The
+  Safari Zone signs and the S.S. Anne's Snorlax had the same fault.
+
+- **Some POKéMON went invisible in battle.** Gen 1 battle pictures have their
+  white flooded away from the edges, and the flood stops only at ink — so
+  wherever a POKéMON's own white touches the edge, it pours into the body and
+  hollows it out. Against the game's white field you cannot tell; against an
+  arena backdrop the hole is a window. Mew's back picture keeps 145 of the 400
+  pixels it should have. The new `MON PAPER` row puts the field shade back
+  under any picture that actually lost some, and leaves the Crystal sprite
+  replacements alone because their transparency is real.
+
+- **The AREA map crashed the game.** Moving the cursor on the Pokédex's `AREA`
+  screen called something the engine has never had, so the first d-pad press
+  there ended the session. That feature had not worked since it shipped.
+
+- **The save-sync hitch.** A sync cycle's expensive moment is decided by when
+  the server answers, so it landed at random — which is why it read as the game
+  hiccupping rather than as the game saving. The new `QUIET SYNC` row keeps it
+  out of the frames you are mid-step in, where a dropped frame is the one thing
+  you would notice.
+
+### Changed
+
+- **The QOL option screen is grouped.** The rows were in the order the mods
+  were added, so `SPRINT` was first and `EASY HM USE` was thirteenth, and
+  `EXP SHARE` sat below the mod manager. They now run getting around, your
+  POKéMON, battles, catching everything, saving, sound, and the furniture last
+  — which is where `Gen1WildUI` already put it, so the two halves read the same
+  way round. Nothing installs in a different order.
+
+- **The maintenance rows are gone from the options.** `TEST BENCH`,
+  `DIAGNOSTIC` and `FIELD TEST` are tools rather than settings, and one of them
+  paints every battle flat magenta without the row saying so. They are offered
+  in developer mode only, and no longer read outside it, so a value left set by
+  an older install cannot strand anyone.
+
+- **The BAG's settings are in the game's voice.** `Opening Pocket`,
+  `Hold Scroll Speed` and `Item Icons` were the only rows in the whole cart
+  written in Title Case. No stored setting moves.
+
 ## [1.23.0] - 2026-08-28
 
 ### Fixed
