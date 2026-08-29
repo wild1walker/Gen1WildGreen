@@ -2,6 +2,34 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.28.0] - 2026-08-29
+
+### Fixed
+
+- **The stutter every time the game autosaves is gone, and it was ours.**
+
+  Not the save itself — the collector burst the autosave fired straight after
+  one. It handed the garbage collector up to **48 MB** of work to do, which on
+  a heap this game's size is a complete collection cycle, in a single frame,
+  after every single save.
+
+  Measured on a 45 MB heap over 30 saves: the frame a save lands in took
+  **53 ms** with that burst and **10.5 ms** with the small nudge that replaces
+  it — and the twenty seconds *afterwards* are within a few milliseconds either
+  way. It was spending forty milliseconds a save to move at most six off some
+  later frame, and on a phone every one of those numbers is three to five times
+  larger.
+
+  The reasoning behind it was simply wrong: the engine already advances the
+  collector a little on every rendered frame, for exactly this purpose, so it
+  was never falling behind in the first place.
+
+  Everything else about when a save happens is unchanged — it still waits for a
+  door, a battle, a conversation or a real stop.
+
+  Gen1WildQOL 1.14.0 -> 1.14.1 (Gen1AutoSave 1.9.0 -> 1.10.0). No other pin
+  moved.
+
 ## [1.27.1] - 2026-08-29
 
 ### Fixed
