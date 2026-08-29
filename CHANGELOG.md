@@ -2,6 +2,26 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.27.1] - 2026-08-29
+
+### Fixed
+
+- **The player no longer glows in a dark cave.** In Rock Tunnel and every
+  other unlit floor he walked around in full daylight colours beside a
+  screenful of silhouettes.
+
+  His green art is marked true-colour, which is what stops a lit map's palette
+  reading the green through the shade buckets it reads grey art through. The
+  catch is that the palette pass that flag opts out of is *also* what blacks a
+  cave out — so the one sprite that opted out of being recoloured had opted out
+  of being blacked out with it.
+
+  He gives the exemption up in an unlit frame now, and the engine's own path
+  darkens him exactly the way it darkens everyone else. Same silhouette, same
+  shade, as a player not wearing green.
+
+  Gen1MakeItGreen 1.23.0 -> 1.24.0. No other pin moved.
+
 ## [1.27.0] - 2026-08-29
 
 ### Changed
