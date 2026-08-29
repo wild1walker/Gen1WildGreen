@@ -2,6 +2,43 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.33.0] - 2026-08-29
+
+### Fixed
+
+- **Your character on the town map wears green, and has his face back.** The
+  little figure marking where you are standing — on the AREA map and on FLY —
+  was still Red in his red cap, on a cart where the player is green in every
+  other frame of the game. His skin and hands were see-through too, with the
+  map showing through them.
+
+  The town map does not draw the player. It builds a marker of its own out of
+  the sprite record and bakes it through the object-palette path, which asks
+  none of the things that make the walker green — and that bake keys the
+  lightest colour to fully transparent, the way real hardware treats sprite
+  palette index 0. Wild Green's skin sits just over that line, so it was keyed
+  away with the background.
+
+  The marker is now the green picture itself, loaded and handed straight to the
+  map. No bake, so nothing to key away.
+
+### Changed
+
+- **The `AREA UNKNOWN` slab is gone from the AREA screen.** With no nests to
+  mark, the original puts a box across the middle of the map to say so. On this
+  cart that was the third thing saying it at once: the line above the map
+  already reads `<NAME> UNKNOWN`, and the strip below carries the half worth
+  reading — `EVOLVE CHARMELEON AT LV36`, or whichever answer the species has.
+  A screen that *has* an answer was covering half its own map to say it has
+  none.
+
+  Press `A` to put the strip away for a clear look at the map and the box comes
+  back, because then it is the only thing left explaining an empty map. `START`
+  brings both back together.
+
+  Gen1WildUI 1.15.1 -> 1.16.0 (Gen1Dex 1.5.3 -> 1.6.0), Wild Green 1.24.0 ->
+  1.25.0. No other pin moved.
+
 ## [1.32.1] - 2026-08-29
 
 ### Fixed
