@@ -2,6 +2,26 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.29.0] - 2026-08-29
+
+### Changed
+
+- **Running between routes no longer autosaves.** Every map change was being
+  treated as a door — worth saving for, and a free frame to save in. A route
+  seam is neither. The routes are stitched together, so crossing one is
+  seamless: the map just scrolls on, and you are mid-stride the whole way
+  across. The save was landing in the exact frame the whole design exists to
+  avoid, for a crossing that is not progress worth stopping for.
+
+  The engine already labels this and the mod was not asking. Only a real
+  warp — a door, stairs, a cave mouth — and FLY have a screen in front of
+  them. Those still save. A route seam now neither writes a save nor asks for
+  one, and a save that was already waiting simply goes at the next real
+  window: the next door, battle, conversation, menu, or a proper stop.
+
+  Gen1WildQOL 1.14.1 -> 1.15.0 (Gen1AutoSave 1.10.0 -> 1.11.0). No other pin
+  moved.
+
 ## [1.28.0] - 2026-08-29
 
 ### Fixed
