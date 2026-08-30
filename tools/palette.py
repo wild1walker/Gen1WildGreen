@@ -72,6 +72,72 @@ SKIN_DARK = (0xad, 0x75, 0x47)
 
 EXTRA = {"MOUTH": MOUTH, "BILL": BILL, "SKIN_DARK": SKIN_DARK}
 
+# ------- the other eight suits
+#
+# PLAYER is nine colours now.  Only three values change between them, and
+# they are the three above that carry the outfit's hue: OUTFIT itself,
+# PIC_LIGHT (the portrait's light shade, which on that art is the highlight
+# for the whole figure rather than skin), and BILL (the cap's peak, which is
+# told apart from the cap by where it sits and so needs a colour of its own).
+#
+# SKIN, SKIN_DARK, MOUTH, PAPER and INK do NOT change.  The face is the face
+# in every colour -- which is the whole reason the recipe learned to tell
+# skin from clothing in the first place, and is what "just the outfit" means.
+#
+# Green's three are sampled by hand and stay exactly as they were: it is the
+# default, it is what the cart is named after, and its files must come out
+# byte for byte the same as before this table existed.  The other eight are
+# derived from their outfit by the rule green's own values describe:
+#
+#     PIC_LIGHT = outfit mixed 45% toward white
+#     BILL      = outfit mixed 83% toward white
+#
+# which reproduces green to within five values of 255 on every channel
+# (#aad995 against #a8dd8a, #e5f3de against #e6f4dc).  Derived once and
+# written out as literals rather than computed here, because these are the
+# same three files' worth of hand-checkable numbers as everything else above
+# and tools/check.py compares them across all three.
+#
+# Except for a PALE outfit, where mixing further toward white is the wrong
+# direction: a near-white bill on a near-white cap is no edge at all.  Above
+# 0.70 relative luminance -- which is YELLOW and WHITE, and which green at
+# 0.62 sits under -- the bill goes 35% toward BLACK instead, and reads as the
+# peak's own shadow.
+#
+# WHITE is the one that cannot be made high-contrast and should not be: a
+# white outfit on white paper is carried by vanilla's own black outline, the
+# way a white shirt is in any four-shade art.  Its outfit is pulled slightly
+# off pure so the garment still has a body.
+SUIT_ORDER = ["green", "orange", "blue", "purple", "yellow",
+              "pink", "black", "white", "grey"]
+
+# name -> (OUTFIT, PIC_LIGHT, BILL)
+SUITS = {
+    "green":  ((0x65, 0xba, 0x3f), (0xa8, 0xdd, 0x8a), (0xe6, 0xf4, 0xdc)),
+    "orange": ((0xe2, 0x68, 0x1c), (0xef, 0xac, 0x82), (0xfa, 0xe5, 0xd8)),
+    "blue":   ((0x3f, 0x7b, 0xd8), (0x95, 0xb6, 0xea), (0xde, 0xe9, 0xf8)),
+    "purple": ((0x8a, 0x5b, 0xd0), (0xbf, 0xa5, 0xe5), (0xeb, 0xe3, 0xf7)),
+    "yellow": ((0xe8, 0xc5, 0x3a), (0xf2, 0xdf, 0x93), (0x97, 0x80, 0x26)),
+    "pink":   ((0xee, 0x7b, 0xb8), (0xf6, 0xb6, 0xd8), (0xfc, 0xe9, 0xf3)),
+    "black":  ((0x3d, 0x3d, 0x45), (0x94, 0x94, 0x99), (0xde, 0xde, 0xdf)),
+    "white":  ((0xcd, 0xd3, 0xda), (0xe4, 0xe9, 0xee), (0x85, 0x89, 0x8e)),
+    "grey":   ((0x8b, 0x91, 0x99), (0xbf, 0xc2, 0xc7), (0xeb, 0xec, 0xee)),
+}
+
+# green's entry IS the three constants above; the two spellings cannot drift.
+assert SUITS["green"] == (OUTFIT, PIC_LIGHT, BILL)
+assert sorted(SUIT_ORDER) == sorted(SUITS)
+
+
+def suit_ramp(name):
+    """The overworld four for a suit, lightest first."""
+    return [PAPER, SKIN, SUITS[name][0], INK]
+
+
+def suit_pic_ramp(name):
+    """The portrait four for a suit, lightest first."""
+    return [PAPER, SUITS[name][1], SUITS[name][0], INK]
+
 # The title ribbon band (LOGO1).  Ink is the lettering; MID is its shadow.
 TITLE_MID = (0x2e, 0x8b, 0x3a)
 TITLE_INK = (0x14, 0x57, 0x1f)
