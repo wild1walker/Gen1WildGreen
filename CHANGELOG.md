@@ -2,6 +2,55 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.41.0] - 2026-08-30
+
+### Added
+
+- **`PLAYER` is ten colours.** `GREEN` and `RED` as before, plus `ORANGE`,
+  `BLUE`, `PURPLE`, `YELLOW`, `PINK`, `BLACK`, `WHITE` and `GREY`.
+
+  Only the **outfit** changes between them. The skin, the lips, the paper and
+  the black outline are the same in all nine recoloured suits — which is what
+  makes a colour a change of clothes rather than a change of person. Every
+  picture follows: the overworld walker and the `BICYCLE` sheet, the battle
+  back pic, the trainer card, Oak's intro, the credits, the Hall of Fame, the
+  town-map marker and the standing figure on the title screen.
+
+  Green is the default and has not moved a pixel: its files come out byte for
+  byte as they did before there was a table to look them up in. The title
+  ribbon stays green in every suit — that is the game's name, not the
+  character's jacket. (Wild Green 1.26.0.)
+
+- **`NPC WALK`.** An NPC who walks you somewhere moved its legs twice as fast
+  as it covered ground, which beside a walking player reads as a hop rather
+  than a walk. A player's tile takes sixteen frames and the walk cycle is
+  sixteen frames long, so one step per tile; an NPC's tile takes thirty-two —
+  NPCs move at half the player's speed in Gen 1 — and the cycle was still
+  sixteen. The cycle is tied to the step now, so one walk cycle fits whatever
+  an entity's own tile length is. (Gen1WildQOL 1.25.0.)
+
+### Fixed
+
+- **Every autosave now lands on a frame nobody can see.** The mod used to pick
+  its moments by asking *where* the player was, and each of those places was
+  reported in turn: the first frame of a door's fade (where the map is still
+  fully drawn, so what freezes is the world), the far end of it (where the
+  transition has already popped, so the game arrives somewhere and stops
+  dead), and a beat after a menu closes (which is the frame you have been
+  waiting for, so the hitch lands in your first stride out of it).
+
+  There is one window now: is the screen a solid colour this frame, and will
+  it still be one on the next? That is the last eight frames of a warp fade —
+  `GBFadeOutToBlack` is a four-step palette staircase and only the fourth step
+  is black — the hold at the front of a battle's return, and the black a
+  script fade holds. A pause on any of those changes nothing on screen; the
+  black is simply longer. A battle's intro wipe has no veil to ask, so going
+  *into* a battle cannot become a window by accident.
+
+  A door also no longer leaves a save owing after its own black has taken one,
+  which was the mechanism producing the hiccup it was meant to prevent.
+  (Gen1AutoSave 1.17.0.)
+
 ## [1.40.0] - 2026-08-29
 
 ### Fixed
