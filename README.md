@@ -62,6 +62,25 @@ into the `carts` folder of your save directory and the launcher picks it up.
 If a pinned mod is missing, the cart's own page offers **Install required
 mods** and fetches them for you. Reach for that rather than breaking the seal.
 
+## If you want to test what is coming
+
+This cart does not move while a change is being worked on. New work goes to a
+**nightly** channel instead, and it is a separate thing you install on purpose:
+
+**MODS > FIND MODS**, add `wild1walker/Gen1NightlyIndex`.
+
+The nightly cart is **Wild Green Nightly** — a dark purple cartridge with
+`NIGHTLY` under the wordmark, so the two are never confused on a shelf. Every
+mod in it carries an id of its own and conflicts with the one here, so running
+a nightly cannot touch this cart, its settings or its saves; and because it is
+a cart of its own, it has save slots of its own too.
+
+They are test builds and can be broken in ways a release is not. That is the
+whole point of them, and it is the only reason to install one.
+
+The index is [Gen1NightlyIndex][nightlyindex] and the source is
+[Gen1NightlyMods][nightlymods].
+
 ## Credits
 
 - **[Gen1Wild][index]** — the suite this is the version of, and the wordmark
@@ -82,3 +101,5 @@ MIT. See [LICENSE](LICENSE).
 [qol]: https://github.com/wild1walker/Gen1WildQOL
 [crystal]: https://github.com/distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals
 [mod]: https://github.com/wild1walker/Gen1MakeItGreen
+[nightlyindex]: https://github.com/wild1walker/Gen1NightlyIndex
+[nightlymods]: https://github.com/wild1walker/Gen1NightlyMods
