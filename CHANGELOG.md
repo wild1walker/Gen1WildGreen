@@ -2,6 +2,45 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.42.0] - 2026-08-30
+
+### Changed
+
+- **`PLAYER` is the first row in the menu.** The player's own colour is the
+  reason this cart is called what it is, and reaching it read
+  `WILD GREEN > OTHER MODS > MAKE IT GREEN > PLAYER` — three doors deep,
+  behind the repository's name rather than the setting's. It is now
+  `WILD GREEN > PLAYER`, above the six cards and above the manager.
+  `OTHER MODS` goes back to meaning the mods you installed yourself.
+
+### Fixed
+
+- **The youngster stops hopping his way to Brock's gym.** Two separate faults
+  wore the same face, and the second is the one that was actually happening
+  on this cart.
+
+  The first: an NPC's tile takes thirty-two frames — NPCs move at half your
+  speed in Gen 1 — while the walk cycle was a flat sixteen, so a wandering or
+  departing NPC took *two* steps per tile. The cycle is tied to the step now,
+  one per tile, foot alternating. That is `NPC WALK`, and it is live.
+
+  The second is the escort, and it is `SPRINT`'s. `stepFramesCur` is the
+  engine's "how long is the step in flight", and the escort scripts read it as
+  "how fast does the player move" to pin the guide's own step to it. Begin an
+  escort with **B held** and the guide was pinned to the *sprinting* length
+  while the escort's own scripted steps refused the sprint and ran at the
+  *walking* one — so he darted a tile in half the frames and stood frozen for
+  the other half, a tile at a time, the whole way there:
+
+  ```
+  in step      ...LLLLLLLL...._...LLLLLLLL...._
+  pinned to 8  ...LLLL_________LLL...._________
+               ( . standing, L stepping, _ arrived and waiting )
+  ```
+
+  A sprinted step no longer outlives its step. (Gen1WildQOL 1.26.0,
+  Gen1WildUI 1.21.0, Gen1Sprint 0.3.1.)
+
 ## [1.41.0] - 2026-08-30
 
 ### Added
