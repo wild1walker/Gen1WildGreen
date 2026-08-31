@@ -2,6 +2,21 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.43.3] - 2026-08-31
+
+### Fixed
+
+- **The XP bar showing through the level-up pop-up.** Reported with
+  screenshots, all of them wide battles — which is the layout that made it
+  visible. `battle.overlay` fires whenever the battle draws, and the battle
+  keeps drawing under whatever is pushed over it; that is how the level-up
+  stat window appears over the fight at all. The wide bar marks its fill
+  `trueColor`, and a `trueColor` rectangle re-blits its region raw once the
+  pass is composed, so that strip came back on top of the window that had just
+  covered it. The bar now stands down while anything is standing on the battle.
+
+  Via Gen1BattleUI 1.6.1 and Gen1WildUI 1.22.2.
+
 ## [1.43.2] - 2026-08-31
 
 ### Fixed
