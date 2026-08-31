@@ -2,6 +2,26 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.43.4] - 2026-08-31
+
+### Fixed
+
+- **The black box around the overworld character on the way into a battle.**
+  `DARK` only — the only theme that paints a skirt at all, which is what
+  pointed at the theme rather than at the follower.
+
+  A true-colour mark gets a one-pixel black skirt so the raw art and the shaded
+  page agree at the seam, and the wrapper that paints it decided for itself
+  whether a mark deserved one by asking whether the *world* pass was running.
+  With **no** pass current the engine drops the mark entirely — and "not the
+  world" is true of no-pass too, so the skirt was painted around a mark that
+  had already been thrown away. A black box with nothing inside it.
+
+  The wrapper now calls the engine first and skirts a rect only if the engine
+  kept one.
+
+  Via Gen1WildUI 1.22.3.
+
 ## [1.43.3] - 2026-08-31
 
 ### Fixed
