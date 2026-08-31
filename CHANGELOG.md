@@ -2,6 +2,26 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.43.5] - 2026-08-31
+
+### Fixed
+
+- **The black box around the overworld character on the way into a battle** —
+  the actual cause this time. A full-colour sprite marks itself out of the
+  colorize pass, which is a sentence about the *world* canvas where it is
+  drawn. The same draw runs with the **UI** pass current during a battle
+  transition, and the UI theme rings every UI-pass rectangle with a one-pixel
+  black skirt — so the mark became a black ring round the character's head,
+  with the sprite's own white showing raw inside it. The sprite now marks only
+  in the world pass.
+
+  1.43.2 and 1.43.4 each fixed a real defect in this area and neither fixed
+  this one. This was deduced rather than guessed: 1.43.4 made the skirt appear
+  only where a rectangle actually landed in the UI list, so a skirt still
+  appearing proves the mark is a UI-pass mark.
+
+  Via Gen1Follower 1.6.2 and Gen1WildQOL 1.27.3.
+
 ## [1.43.4] - 2026-08-31
 
 ### Fixed
