@@ -2,6 +2,21 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.43.2] - 2026-08-31
+
+### Fixed
+
+- **The black square outline around the character on the way into a battle.**
+  Reported on the live cart. A full-colour overworld sprite marks a rectangle
+  to be re-blitted raw, out of the colorize pass, and that rectangle was
+  rounded outward twice — once by the mod, once by the renderer's scissor,
+  which rounds every zone outward on purpose so two SGB zones share an edge.
+  The margin is background, and background left out of the pass is invisible
+  until the ground changes: the battle wipe takes the ground and leaves the
+  ring. `ADVANCED` and `LIGHT` only, which is what named the cause.
+
+  Via Gen1Follower 1.6.1 and Gen1WildQOL 1.27.2.
+
 ## [1.43.1] - 2026-08-31
 
 ### Fixed
