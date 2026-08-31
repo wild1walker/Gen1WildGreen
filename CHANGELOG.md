@@ -2,6 +2,37 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.43.0] - 2026-08-31
+
+### Changed
+
+- The cart picks up everything the nightly channel built, promoted onto the
+  stable line: **Gen1WildQOL 1.27.0**, **Gen1WildUI 1.22.0** and **Wild Green
+  1.27.0**.
+- The headline is **`UI THEME`** — a row on the game's own `OPTION` screen
+  giving `LIGHT`, `DARK` or `COLORFUL`. It swaps the four colours the SGB pass
+  gives a zone rather than redrawing anything, so it reaches the whole suite
+  and the game underneath it: the `START` menu, the bag, dialogue over the
+  map, the town map, the battle menus. `COLORFUL` is work in progress and the
+  row says so.
+- **`INSPECT` on the town map**: stand on a place and ask what lives in it,
+  richest share first, read off the live encounter tables. `A` on a row opens
+  that POKéMON's `AREA` map.
+- **`TRAINER REMATCH`**: talk to a trainer you have beaten, read them out with
+  `A`, and fight them again.
+- **`ITEM INFO` reaches the mart** — `BUY` and `SELL` get descriptions, icons
+  and the ball column.
+- **`PLAYER` takes effect where you are standing**, rather than on the next
+  launch, and the version ribbon follows the colour it is set to.
+- **The dex stops naming POKéMON you have never met** — the evolution rows,
+  the `AREA` header and the `AREA` caption alike.
+
+Each mod's own changelog has the full list.
+
+- `tools/palette.py` comes across with Wild Green 1.27.0: `LOGO1`, the title
+  ribbon's band, is lettered in the character's own outfit colour now rather
+  than always green, so the two copies of that file agree again.
+
 ## [1.42.0] - 2026-08-30
 
 ### Changed
