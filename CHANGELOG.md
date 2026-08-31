@@ -2,6 +2,28 @@
 
 All notable changes to this cart are recorded here, newest first.
 
+## [1.43.1] - 2026-08-31
+
+### Fixed
+
+- **`DIAGNOSTIC` and `FIELD TEST` are off the arena menu again.** 1.43.0's
+  Gen1WildUI was assembled from the nightly channel's fork, which flips
+  Gen1Arena's developer gate on purpose — the nightly *is* the developer build.
+  The flip came across with everything else, so 1.43.0 put two debug rows in
+  front of every player. Gen1WildUI 1.22.1 puts the gate back.
+
+### Changed
+
+- Re-pinned to **Gen1WildUI 1.22.1** and **Gen1WildQOL 1.27.1**, which retire
+  the overlays 1.43.0's bundles were carrying. All nine features they overlaid
+  have cut releases of their own — Gen1Dex 1.10.0, Gen1Arena 0.22.0,
+  Gen1ModernBag 1.12.0, Gen1BattleUI 1.6.0, Gen1BillsBox 1.6.0, Gen1Party
+  1.8.0, Gen1MenuManager 0.4.0, Gen1AutoSave 1.18.0, Gen1Follower 1.6.0 — so
+  anyone installing those mods standalone gets the same fixes the cart has.
+
+Nothing else a player sees changes: the bundles' `modules/` are byte-identical
+to 1.43.0 apart from the gate above and two internals published for testing.
+
 ## [1.43.0] - 2026-08-31
 
 ### Changed
