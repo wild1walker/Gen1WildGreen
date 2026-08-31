@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.43.6
+
+Re-pinned to **Gen1WildUI 1.22.4**.
+
+- **The pale box with the black ring, round the character on the way into a
+  battle.** `ADVANCED` + `DARK`, and only while the wipe runs. Five releases
+  have been cut at this; the first four went after the wrong mark.
+
+  The one that draws it is the engine's own. `SpriteRenderer:draw` reports a
+  trueColor rect for every sprite whose art is full colour -- the whole 16-wide
+  cell, transparent pixels and all -- in whichever pass happens to be current.
+  On the map that is the world pass and the rect is doing its job. The battle
+  transition is a state on the stack, so it draws under the **UI** pass, and
+  what it draws is the whole overworld, sprites included, onto the UI canvas.
+  Every character reports its cell into the UI list from inside the wipe, and
+  the renderer then splices that rectangle onto the UI zone list and re-blits
+  the cell raw -- so the map showing through the sprite's transparent pixels
+  keeps its DMG shades while the map around it is colourised, which is the pale
+  square -- and the theme paints its one-pixel ring round the edge of it, which
+  is the black outline.
+
+  No gate inside a mod on that mod's own call could have reached it, which is
+  why the follower's three fixes did not. It is gated in the theme instead,
+  where every mark passes through: a sprite cell reported outside the world
+  pass is dropped before the engine sees it.
+
 All notable changes to this cart are recorded here, newest first.
 
 ## [1.43.5] - 2026-08-31
