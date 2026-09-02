@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.46.0
+
+Re-pinned to **Gen1WildUI 1.26.0**.
+
+- **The evolution screen goes dark**, instead of putting a black ring round the
+  POKeMON on a white page. Same treatment Oak's speech got: it is a themed page
+  now, and the matte paints the page colour under the sprite's mark.
+
+- **Bag icons stop punching through the pop-up on top of them.** Open `SORT`,
+  the item actions or the TM/HM list and the icons underneath came back over
+  the box, each carrying its own dark cell. An icon a pop-up covers now drops
+  its mark and its matte together.
+
+
 ## 1.45.1
 
 Re-pinned to **Gen1WildUI 1.24.1**.
