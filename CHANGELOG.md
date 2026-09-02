@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.45.0
+
+Re-pinned to **Gen1WildUI 1.24.0**.
+
+- **Oak's speech is dark, and its portraits have lost their white boxes.** The
+  whole intro stayed white through `DARK` — the first thing a new game shows,
+  and the one screen the theme never reached.
+
+  It is a themed page now, so the background goes dark; the matte paints the
+  page colour under each portrait's true-colour mark, so the white the screen
+  cleared to stops coming back inside it; and the matte is laid again after
+  the screen's own full-screen fill, which was quietly erasing it. All three
+  are needed and none works alone.
+
+- **No black ring round a portrait on a screen the theme leaves alone.** The
+  ring hides the seam where raw art meets a shaded page. Where there is no
+  shaded page there is no seam, and the ring was the only thing you could see.
+
+
 ## 1.44.0
 
 Re-pinned to **Gen1WildUI 1.23.0** and **Gen1WildQOL 1.28.0**.
