@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.44.0
+
+Re-pinned to **Gen1WildUI 1.23.0** and **Gen1WildQOL 1.28.0**.
+
+- **Voxel support across the suite, and it is a work in progress.** It works
+  best with **potato voxel** right now. The other forks — Battle Art Voxel,
+  Dramatic Shape and its variants, and Dramaless Shape — run on the same code
+  path and should work, but are less proven. No voxel mod is required: with
+  none installed, nothing about the cart changes.
+
+  A voxel mod draws the battle in 3D over the map and moves the HUDs onto its
+  own world canvas. Three things in this cart draw beside a HUD — the XP bar,
+  the battle overlays and the follower — and each used to decide for itself
+  which forks it knew about, when it knew about any. They now share one
+  answer, so the XP bar follows the HUDs onto the canvas, the overlays go with
+  them, and the follower is billboarded under all six forks rather than three.
+  `ARENA`'s backdrop stands down while a diorama is behind the fight, instead
+  of competing with it.
+
+- **The autosave waits for the battle's outcome to be recorded.** It used to
+  write during the return transition's hold, which is before the engine marks
+  the trainer defeated — so loading that save put you back in front of someone
+  who immediately challenged you again, with the battle un-won.
+
+- **No inverted square behind the party sprites** under the message box you get
+  when picking the POKeMON you are already using.
+
+- **`DARK` no longer themes a wide battle as a page** — everything black, no
+  move menu — and no line is drawn across the move panel's PP row.
+
+
 ## 1.43.6
 
 Re-pinned to **Gen1WildUI 1.22.4**.
