@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.46.5
+
+Re-pinned to **Gen1WildUI 1.26.5**.
+
+- **The party row a message box cuts through keeps its colours.** The box's top
+  edge lands mid-row rather than on a boundary, so slot 5 is cut rather than
+  covered — and the half of the icon still on the page was losing its colours
+  along with the half underneath. Only the covered part lets go now.
+
+- **`BUY` and `SELL` name themselves in the header**, the same empty box the
+  item PC had. At a mart the money on the right had always filled the space, so
+  it read as a design choice rather than a gap.
+
+
 ## 1.46.4
 
 Re-pinned to **Gen1WildUI 1.26.4**.
