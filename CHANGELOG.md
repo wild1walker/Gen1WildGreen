@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.46.3
+
+Re-pinned to **Gen1WildUI 1.26.3**.
+
+- **The white hairline down the right of every item icon, and beside every
+  coloured move type, is gone.** A true-colour rectangle is re-blitted raw over
+  the finished frame, and on a phone the renderer's zone scissor rounds
+  outward — so the re-blit bleeds a sliver of the box's own white paper along
+  its edge. The ring `DARK` paints round a mark is what hides that, and it only
+  went on art standing on a themed **page**. Art standing on a themed **panel**
+  — a battle's move box, the bag's item window over a fight — has exactly the
+  same seam, and gets the ring now too.
+
+
 ## 1.46.2
 
 Re-pinned to **Gen1WildUI 1.26.2**.
