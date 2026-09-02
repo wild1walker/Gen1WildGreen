@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.47.0
+
+Re-pinned to **Gen1WildQOL 1.29.0**.
+
+- **REUSABLE TMS.** A TM is kept when it is used, the way an HM always has
+  been. On by default, in `OPTION > GEN1WILD QOL > ITEMS`.
+
+- **FORGET HM MOVES.** An HM move can be replaced when a POKéMON learns a
+  fifth — the only way to remove a move in this generation, which is why
+  `REMEMBER MOVES` sits next to it. It cannot strand a save: an HM is never
+  used up, so the move can always be taught back from the same one. On by
+  default, in `OPTION > GEN1WILD QOL > POKEMON`.
+
+
 ## 1.46.5
 
 Re-pinned to **Gen1WildUI 1.26.5**.
