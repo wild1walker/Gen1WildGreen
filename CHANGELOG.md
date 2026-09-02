@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.46.1
+
+Re-pinned to **Gen1WildUI 1.26.1**.
+
+- **Opening the bag in a battle no longer turns the fight black and white.** A
+  battle declares a raw blit, which is how its backdrop and its POKeMON keep
+  their colours. The bag has no palettes of its own, so the zone list still
+  belonged to the fight underneath — and the theme was painting a whole-screen
+  page over it. A page that brought no palettes now leaves a raw list alone;
+  its own boxes are themed either way.
+
+
 ## 1.46.0
 
 Re-pinned to **Gen1WildUI 1.26.0**.
