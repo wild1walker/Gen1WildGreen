@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.46.2
+
+Re-pinned to **Gen1WildUI 1.26.2**.
+
+- **Opening the bag in a battle no longer turns the fight black and white** —
+  for real this time. 1.46.1 went at a case that does not happen. A classic
+  battle does not hand the theme a raw list, it hands it **nothing at all**,
+  and an empty list is the engine's own "blit this frame in the colours it was
+  drawn in". The theme was painting a whole-screen page over exactly that.
+
+  The real fault was in what counts as a page. The bag's item window is not a
+  screen of its own — the engine itself says so, twice, in the two lines that
+  build it — it is a box on somebody else's screen, the same as the `START`
+  menu on the map. It is themed as one now, and the fight behind it keeps its
+  backdrop and its POKeMON.
+
+- **Item icons stop going greyscale when a pop-up opens over them.** 1.46.0 had
+  an icon let go of its whole cell as soon as a box touched any of it, and the
+  bag's pop-ups open against the right edge at whatever width they need — so
+  one that reaches into the icon column usually stops part-way across it, and
+  the strip of icon still showing lost its colours with the rest. Only the
+  covered part lets go now.
+
+
 ## 1.46.1
 
 Re-pinned to **Gen1WildUI 1.26.1**.
