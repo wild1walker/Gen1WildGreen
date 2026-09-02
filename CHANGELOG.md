@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.45.1
+
+Re-pinned to **Gen1WildUI 1.24.1**.
+
+- **Battles are dark again.** 1.45.0 turned every battle's command boxes white
+  in `DARK`. Recording where a battle's true-colour art is, and painting a ring
+  round it, had been put behind the same condition — so gating the ring (which
+  is what fixed the black boxes in the intro) also stopped the recording, and
+  the battle lost the zone that themes it.
+
+
 ## 1.45.0
 
 Re-pinned to **Gen1WildUI 1.24.0**.
