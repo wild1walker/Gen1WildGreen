@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.46.4
+
+Re-pinned to **Gen1WildUI 1.26.4**.
+
+- **The item PC's three screens are fixed.** `WITHDRAW ITEM` / `DEPOSIT ITEM` /
+  `TOSS ITEM` now name themselves in the header box, which the engine left
+  empty; the white plate behind the count and the white band under the list in
+  `DARK` are gone — the screen paints a whole page and now says so, instead of
+  being described as the partial window the engine draws; and `CANCEL` is gone
+  from all three, because B has always left one of these lists and the row was
+  a quarter of a short list restating a button. The mart keeps its `CANCEL`.
+
+
 ## 1.46.3
 
 Re-pinned to **Gen1WildUI 1.26.3**.
