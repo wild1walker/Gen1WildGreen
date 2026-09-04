@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.47.1
+
+Re-pinned to **Gen1WildQOL 1.29.1**.
+
+- **The ROCKET HIDEOUT lift is no longer locked by TRAINER REMATCH.** Beat the
+  ROCKET guarding it, talk to him, and you got `Want to battle again?` instead
+  of his own line — and his own line is the only thing in the game that puts
+  the LIFT KEY on the floor. The ball starts hidden and that talk is what
+  reveals it, so with the row on it never appeared: no lift, no SILPH SCOPE,
+  no POKéMON TOWER, no GIOVANNI, on a save that gave no sign anything had gone
+  wrong. If you are stuck there, updating fixes the save you already have —
+  talk to him again and he drops it.
+
+- **A trainer is a rematch once they have handed over what they owe you**, and
+  not before. The mod no longer answers the A press itself; the engine says
+  whichever line it was going to say, every side effect it carries still
+  happens, and the question goes on the end of it — only when that line was
+  the end of it. A gym leader whose TM did not fit in your bag re-runs the
+  hand-over first and asks nothing; take the TM and the rematch is there.
+
+- **Gym leaders can be rematched**, for the first time. The badge stays exactly
+  once yours — nothing of the victory path runs on a rematch — and `MATCH
+  LEVELS` makes a leader you left behind a real fight again.
+
 ## 1.47.0
 
 Re-pinned to **Gen1WildQOL 1.29.0**.
