@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.48.0
+
+- **The cartridge is holo.** The shell keeps its green; the launcher now gives
+  it the holographic finish it has always had a field for and never used. No
+  mod pins moved — this is the cart's own face, and nothing about what it
+  plays has changed.
+
+
 ## 1.47.1
 
 Re-pinned to **Gen1WildQOL 1.29.1**.
