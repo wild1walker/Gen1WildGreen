@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.51.0
+
+Re-pinned to **Gen1WildQOL 1.31.0** and **Gen1WildUI 1.27.1**, for one fix
+that is Red's.
+
+- **The REMEMBER popup sits where it should on the party menu**
+  (Gen1Remember). Its frame was narrower than the party menu's own bottom
+  message for a short list of moves, so the message showed past both sides of
+  it — and wide enough for a long move name that the frame got nudged left onto
+  the party's sprite column. It is full width and hard against the bottom edge
+  now, which is the shape the cart itself uses there.
+
+The rest of what those two releases carry is Gold's — a rematch price and a PC
+menu — and does not reach this cart.
+
 ## 1.50.0
 
 Re-pinned to **Gen1WildQOL 1.30.1**, for one crash.
