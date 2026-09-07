@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.58.0
+
+Re-pinned to **Gen1WildUI 1.28.0**.
+
+- **The GLOBAL BOX.** Past BOX 12 the box header keeps going: **GLOBAL 1**,
+  and another page every time the last one fills. It is one box shared with
+  every other save on your installation — put a POKéMON in here and it is
+  waiting for you on Wild Crystal, and anything Wild Crystal sends is waiting
+  here. There is a **SEND** row on a POKéMON's own popup in the party menu too.
+
+  It lives **inside the saves**, so it syncs, backs up and rolls back with
+  them. Only what RED could hold may live in it, by the **Time Capsule's** own
+  rules — which on this cartridge means everything, and nothing has to be
+  converted on the way in or out.
+
 ## 1.57.0
 
 Re-pinned to **Gen1WildQOL 1.32.1**.
