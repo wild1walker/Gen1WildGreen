@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.54.0
+
+Re-pinned to **Gen1WildQOL 1.32.0**.
+
+Both changes in it are Gold's — a rematch stake that was an eighth of the purse
+instead of half, and MATCH LEVELS reaching the battle rather than only the
+quote. **Nothing on this cart changes.** TRAINER REMATCH on Red already staked
+half and already scaled the fight; the Gold arm has been brought up to it.
+
 ## 1.53.0
 
 Re-pinned to **Gen1WildUI 1.27.2**.
