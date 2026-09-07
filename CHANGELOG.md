@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.49.0
+
+Re-pinned to **Gen1WildUI 1.27.0** and **Gen1WildQOL 1.30.0**.
+
+Those two releases are mostly about Gold, Silver and Crystal — which this cart
+does not play — but three of the fixes underneath them are Red's, and this is
+how they reach you:
+
+- **The box no longer draws a black box around some POKéMON on a dark page**
+  (Gen1BillsBox). A full-colour icon's width was being clamped against its
+  *height*, so a sprite wider than its cell but no taller kept its full width
+  and was drawn past its square.
+
+- **Gen1Party's own suite is green again**, which had been failing since the
+  engine appended `CANCEL` to the party popup: one check asserted `SWITCH` was
+  the last row, and four more walked to the last row to find it and pressed A
+  on `CANCEL`. No behaviour changed — the assertions were reading a list that
+  had grown a row.
+
+- **Followers put every swapped sprite back** when the row goes off, not just
+  the ones on screen.
+
+Nothing about how Red plays has otherwise changed, and the pinned set is the
+same four mods it always was.
+
+
 ## 1.48.0
 
 - **The cartridge is holo.** The shell keeps its green; the launcher now gives
