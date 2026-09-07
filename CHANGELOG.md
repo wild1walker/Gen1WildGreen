@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.55.0
+
+Re-pinned to **Gen1WildUI 1.27.3**.
+
+- **POKéMON in the box and the party walk south again** instead of turning to
+  face you and away on the spot. The follower sheets hold six frames — south,
+  north and side, standing and stepping — and the icon path was alternating the
+  first two of them, which are the front and the back. Red has always stepped
+  to the south walk frame on a tall sheet; Gold does now too.
+
 ## 1.54.0
 
 Re-pinned to **Gen1WildQOL 1.32.0**.
