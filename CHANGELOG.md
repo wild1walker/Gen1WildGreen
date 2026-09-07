@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.56.0
+
+Re-pinned to **Gen1WildUI 1.27.4**.
+
+- **The box walks its POKéMON at the same speed the party list does.** The last
+  release fixed *which* frames the walk uses; this is how fast it plays them.
+  The box was running the icon clock at double rate — a number borrowed from
+  Red's box, whose animation is a mirror rather than a walk.
+
 ## 1.55.0
 
 Re-pinned to **Gen1WildUI 1.27.3**.
