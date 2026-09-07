@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.57.0
+
+Re-pinned to **Gen1WildQOL 1.32.1**.
+
+- **Under DARK, the caught marker is a POKéBALL again — and the EXP bar comes
+  back with it.** The ball was reporting one true-colour mark per *pixel*: 37
+  of them for a 7x7 icon. DARK draws a one-pixel skirt round every mark, which
+  filled the ball's transparent corners in and made it a blob — and 37 rects
+  emptied the frame's 40-rect budget, so the EXP bar's single mark fell off the
+  end and lost the zone that themes it. One icon, both symptoms.
+
 ## 1.56.0
 
 Re-pinned to **Gen1WildUI 1.27.4**.
