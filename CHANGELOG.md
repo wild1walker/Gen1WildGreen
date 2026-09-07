@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.50.0
+
+Re-pinned to **Gen1WildQOL 1.30.1**, for one crash.
+
+- **Picking QUIT with nothing to save no longer crashes** (Gen1AutoSave). Load
+  a save, open START and choose QUIT before anything has happened — before a
+  step, a battle, a door — and the game stopped with
+  `attempt to call field 'unpack' (a nil value)` instead of showing the
+  prompt. Nothing had changed yet, so there was no save worth offering, and
+  the fallback that hands the row straight back to the game was the broken
+  part: it named `table.unpack`, which the Lua the game runs does not have.
+  Reported from a real save; fixed in Gen1AutoSave 1.20.1, whose harnesses now
+  run under the game's interpreter as well as the bench's so the next one
+  cannot hide the same way.
+
+Nothing else moved. Gen1WildUI stays at 1.27.0.
+
 ## 1.49.0
 
 Re-pinned to **Gen1WildUI 1.27.0** and **Gen1WildQOL 1.30.0**.
