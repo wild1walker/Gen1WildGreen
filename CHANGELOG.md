@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.52.0
+
+Re-pinned to **Gen1WildQOL 1.31.1**.
+
+- **A rematch you cannot afford now says what it costs.** The refusal used to
+  be "You don't have enough money." and nothing else, which tells you nothing
+  you can act on. It names the price on a second page now.
+
 ## 1.51.0
 
 Re-pinned to **Gen1WildQOL 1.31.0** and **Gen1WildUI 1.27.1**, for one fix
