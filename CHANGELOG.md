@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.53.0
+
+Re-pinned to **Gen1WildUI 1.27.2**.
+
+- **"NOTHING LIVES HERE" no longer runs through the box border.** On a POKéDEX
+  AREA place with nothing in it, the last letter was drawn on top of the
+  frame. It sits inside the box now.
+
 ## 1.52.0
 
 Re-pinned to **Gen1WildQOL 1.31.1**.
