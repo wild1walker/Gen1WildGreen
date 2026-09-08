@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.58.1
+
+Re-pinned to **Gen1WildUI 1.28.1**.
+
+- **A POKéMON you send from here shows up in Wild Crystal's GLOBAL BOX.** It
+  didn't: the other cartridge's outbox was invisible, so the box read empty on
+  every save but the one you were in. The bundle files each vendored mod's
+  save data under a prefixed key, and the box was looking for the unprefixed
+  one when it read another save. It goes by the shape of what it finds now,
+  not the name.
+
 ## 1.58.0
 
 Re-pinned to **Gen1WildUI 1.28.0**.
