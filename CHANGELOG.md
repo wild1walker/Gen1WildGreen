@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.64.0
+
+Re-pinned to **Gen1WildUI 1.32.0**.
+
+- **The battle keeps its colours.** The arena backdrop was being drawn while
+  the cart's palette shader was still bound, so a photograph came back as four
+  greys — which is why the EXP bar, the one thing that clears the shader
+  before it paints, was the only colour left on the screen.
+
+- **The GLOBAL BOX keeps its holes, and it sorts.** It was a queue that closed
+  up behind every withdrawal, and its order belonged to other saves' files. A
+  cell is a position now: a hole stays a hole, a POKéMON put down on a cell
+  lands in it, B puts one back where it came from, and SORT and UNDO are on
+  the popup there.
+
+- **A POKéMON taken out of the GLOBAL BOX is registered in the POKéDEX**, seen
+  and owned, the way a link trade already did it.
+
 ## 1.63.0
 
 Re-pinned to **Gen1WildUI 1.31.0**.
