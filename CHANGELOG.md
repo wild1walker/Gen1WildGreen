@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.58.2
+
+Re-pinned to **Gen1WildUI 1.28.2**.
+
+- **The GLOBAL BOX is the box mod's feature, not this cartridge's.** It reads
+  every save on your installation, plain playthroughs included — so a POKéMON
+  can go between this and any other game that has the mod, not just between
+  the Wild cartridges. Two refusal lines fixed with it: one named the wrong
+  game to import, and one ran off the end of the text box.
+
 ## 1.58.1
 
 Re-pinned to **Gen1WildUI 1.28.1**.
