@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.60.0
+
+Re-pinned to **Gen1WildUI 1.30.0**.
+
+- **Anything drawn over a POKéMON in the box came back inverted.** A popup
+  over the grid came back with white blocks punched through it, in a grid,
+  exactly the size and position of the cells underneath. A true-colour mark
+  claims a rectangle to be re-blitted raw at composite time, and by then the
+  popup is drawn over part of it. An icon a menu is covering does not claim
+  true colour any more.
+
+- **SELECT marks, and A moves everything marked.** Mark six in one box, walk
+  to another, press A. The marks survive a box change; B clears them; a box
+  with room for some but not all of them takes none and says so.
+
+- **SORT moved from SELECT into the popup START opens**, beside the other
+  verbs, with UNDO — which is what freed SELECT.
+
+- **SEND is on the box popup too**, not only the party menu's, and it is the
+  box's own move rather than the party's.
+
 ## 1.59.1
 
 Re-pinned to **Gen1WildUI 1.29.1** and **Gen1WildQOL 1.32.2**.
