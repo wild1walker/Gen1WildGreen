@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.59.1
+
+Re-pinned to **Gen1WildUI 1.29.1** and **Gen1WildQOL 1.32.2**.
+
+- **The caught marker and the EXP bar under DARK.** The theme rings every
+  true-colour mark to hide the seam where art it did not draw meets a shaded
+  page. Neither of these has a seam — both are flat colour a mod painted
+  itself — so the ring was filling the POKéBALL's corners in and drawing a
+  black box round the blue bar. Both mark flat now. A level-up also stopped
+  taking the rest of the frame's colour with it: the EXP burst was marking
+  192 rectangles a frame against a cap of forty, and is three per particle now.
+
 ## 1.59.0
 
 Re-pinned to **Gen1WildUI 1.29.0**.
