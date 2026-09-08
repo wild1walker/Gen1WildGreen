@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.59.0
+
+Re-pinned to **Gen1WildUI 1.29.0**.
+
+- **The GLOBAL BOX holds both generations now.** Each POKéMON keeps the shape
+  the game that sent it had it in, so a deposit converts nothing and nothing is
+  ever loaded — a Johto POKéMON goes in from a Gen 2 game and comes back out of
+  it unchanged. What a Gen 1 game will take out is still the Time Capsule’s
+  rule, asked when it takes it. Also: a refusal that ran off the right edge of
+  Gold’s message box now turns the page.
+
 ## 1.58.2
 
 Re-pinned to **Gen1WildUI 1.28.2**.
