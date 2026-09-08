@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.62.0
+
+Re-pinned to **Gen1WildUI 1.30.2**.
+
+- **Moving several POKéMON out of the GLOBAL BOX took the wrong ones**, then
+  said "That can't be sent." A mark records where a POKéMON is, which is
+  enough in a cartridge box — those keep their arrangement, so taking one out
+  leaves every other cell where it was. The GLOBAL BOX is a **queue**: a
+  withdrawal closes it up and every cell after the gap moves down one. Mark
+  ONE and TWO and you moved ONE and THREE. Marks on a global page carry the
+  POKéMON's id now, and every take resolves it to where that POKéMON is at the
+  moment of the take.
+
 ## 1.61.0
 
 Re-pinned to **Gen1WildUI 1.30.1**.
