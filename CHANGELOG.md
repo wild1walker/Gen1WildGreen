@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.61.0
+
+Re-pinned to **Gen1WildUI 1.30.1**.
+
+- **The caught marker and the EXP bar under DARK, for real this time.** The
+  last fix stopped the theme *painting* the one-pixel ring and left it *zoning*
+  one: every marked rectangle was grown by a pixel on each side and painted
+  through a palette whose both ends are black, which on Red's white HUD panel
+  is a black pixel all the way round. Same ring, drawn by the palette instead
+  of the brush. Art a mod painted itself is now zoned as exactly the rectangle
+  it painted, so the POKéBALL keeps its corners and the blue bar has no box
+  round it.
+
 ## 1.60.0
 
 Re-pinned to **Gen1WildUI 1.30.0**.
