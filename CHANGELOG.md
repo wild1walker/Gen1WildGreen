@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.63.0
+
+Re-pinned to **Gen1WildUI 1.31.0**.
+
+- **SEND is on the party half of the box screen.** Selecting a party member
+  there offered STATS and CANCEL and nothing else. It makes the move the way
+  the screen already makes it every time the cursor lifts a POKéMON out of the
+  party — the same last-POKéMON refusal, the mail behind it moved up with it
+  on Crystal, and back into the row it came from if the shared box turns it
+  away. It confirms first, because out of the party is a POKéMON leaving your
+  team rather than a move between pages.
+
 ## 1.62.0
 
 Re-pinned to **Gen1WildUI 1.30.2**.
