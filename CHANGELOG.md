@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.65.0
+
+Re-pinned to **Gen1WildUI 1.33.0**.
+
+Both fixes in that release are Gold's, and this cart plays Red — the trainer
+cut-out and the #DEX's AREA page for gifts are both behind the Gen 2 arm, so
+there is nothing here you will see. It is pinned forward anyway: Wild Green
+and Wild Crystal share a GLOBAL BOX, and two cartridges trading POKéMON
+between them should be running the same suite, not one release apart.
+
+For the record, what is in it:
+
+- **Some trainers kept their white square** (Gold). The cut-out that lifts a
+  trainer off its background was gated on a colour COUNT — four, which is a
+  cart pic exactly and which replacement art blows past — so every replaced
+  trainer was refused, and the refusal was cached. It asks the BORDER now.
+
+- **The #DEX can say where a gift came from** (Gold). The starters and EEVEE
+  showed NO RECORD REMAINS on the AREA page, because a POKéMON somebody hands
+  you is in no wild table and evolves from nothing. The page reads the cart's
+  own `givepoke` now and names the place.
+
 ## 1.64.0
 
 Re-pinned to **Gen1WildUI 1.32.0**.
