@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.68.0
+
+Re-pinned to **Gen1WildUI 1.35.0**. The arena, on both cartridges.
+
+- **The battle backdrop is one photograph at one scale again.** It is painted
+  on the battle surface, and the engine scales that surface to the window —
+  but the bars around it were filled by fitting the same picture to the *whole
+  window*, a larger scale. One photograph at two magnifications, joined at the
+  surface's edge, and the wider the window the worse it looked.
+
+  The bars take the surface's own scale and alignment now, so the whole screen
+  is one continuous image. Nothing is stretched to reach: a bar the picture
+  cannot cover keeps the surround's colour instead of a blown-up smear.
+
+- **The backdrop is chosen for the shape of the screen, not the setting.**
+  BATTLE LAYOUT picks the surface; the art used to be picked to match it,
+  which only works while the surface is the whole picture. As soon as your
+  window is wider there are side bars, and the 160×144 art has nothing outside
+  itself to put in them. The 304×144 art has 72 real columns each side, so
+  that is what loads — on the classic layout too, centred so the battlefield
+  itself is exactly the picture it always was.
+
+  BATTLE SIZE = FILL and FIXED both behave properly now, because the rule
+  reads the shape of what has to be covered rather than which option you set.
+
 ## 1.67.0
 
 Re-pinned to **Gen1WildQOL 1.33.0**, and the engine floor moves with it.
