@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.66.0
+
+Re-pinned to **Gen1WildUI 1.34.0**, and this one is both cartridges'.
+
+- **Turning EDGE TO EDGE off left the backdrop standing in a white frame.**
+  Reported with two screenshots side by side, every other mod disabled.
+
+  The white was never the mod's paint. The engine fills the space around the
+  game screen with the paper shade for any screen that asks for a white
+  surround, and a battle asks *because its field is white paper* — so the
+  paper looks like it runs off the edges instead of stopping at a rectangle.
+  Put a photograph in the field and that reasoning inverts: the surround is
+  then the only white left, and a white rectangle around a picture is a frame,
+  not an edge.
+
+  So off no longer means "leave the bars alone". The picture stops at the
+  game screen and the bars go black — the engine's own default, the same thing
+  BATTLE BG = BLACK already gives. EDGE TO EDGE means the one thing it says
+  again: whether the picture reaches the edges.
+
+  UI LETTERBOX still wins: BLACK, WHITE and PALETTE come back as whatever you
+  set it to. And a battle with no backdrop is untouched, because white paper
+  running off the edge of the screen is right when the field really is paper.
+
 ## 1.65.0
 
 Re-pinned to **Gen1WildUI 1.33.0**.
