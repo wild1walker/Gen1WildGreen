@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.69.0
+
+Re-pinned to **Gen1WildUI 1.36.0**.
+
+- **The battle backdrop reaches the bottom of your display.** Below the
+  picture there was no more picture — the art is 144 rows — so the band under
+  it was flat surround. Every backdrop has a perfectly flat bottom row, being
+  the field the text box sits on, so that row carries on downwards now: the
+  same colour it already is, an extension of the scene rather than a stretch
+  of it. The band *above* stays as it is on purpose — the top row is sky or
+  ceiling on every backdrop, and pulling that up would be the stretching
+  1.35.0 took out.
+
+- **Fixed: a backdrop that vanished after the first frame of a battle.** The
+  previous release’s letterbox placement returned one more value than its own
+  cache did, so the first frame was right and every frame after it failed
+  quietly, leaving a battle with no scenery around it. Caught by a test rather
+  than by anyone playing.
+
 ## 1.68.0
 
 Re-pinned to **Gen1WildUI 1.35.0**. The arena, on both cartridges.
