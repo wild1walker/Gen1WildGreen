@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.67.0
+
+Re-pinned to **Gen1WildQOL 1.33.0**, and the engine floor moves with it.
+
+- **This cart now needs gen1recomp `0.2.57` or newer**, up from `0.1.37`.
+
+  Gen1WildQOL used to carry a shim that scoped a Gen 2 cart's save: the engine
+  named its Gold/Silver/Crystal save file out of the VERSION alone, so a cart
+  read and wrote the *base game's* playthrough and registered its slot in the
+  base game's launcher list on the way. The engine does that itself as of
+  `0.2.57`, to the same filenames, so the shim is gone — and the floor has to
+  rise with it, because on an older build there would now be nothing doing the
+  job.
+
+  **No save moves.** The engine writes exactly where the shim wrote. Nothing
+  in this cartridge's own play changes: Wild Green is Red, and the bug was
+  Gold's — it is pinned forward so both cartridges run one suite, the same
+  reason as 1.65.0.
+
 ## 1.66.0
 
 Re-pinned to **Gen1WildUI 1.34.0**, and this one is both cartridges'.
