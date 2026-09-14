@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.70.0
+
+Re-pinned to **Gen1WildUI 1.37.0**.
+
+- **The band above and below the battle backdrop is plain again.** 1.69.0 /
+  1.20.0 filled the space under the picture with the backdrop’s own bottom
+  row. On a phone that is a flat slab of yellow-green across the bottom
+  quarter of the display, which is worse than the plain surround it replaced,
+  so it is reverted.
+
+  The backdrop is 144 rows tall; reaching the very top and bottom of a modern
+  display needs taller art rather than a colour extended out of the art there
+  is.
+
 ## 1.69.0
 
 Re-pinned to **Gen1WildUI 1.36.0**.
