@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.71.0
+
+Re-pinned to **Gen1WildUI 1.38.0**.
+
+- **BATTLE SIZE = FILL now really fills the screen.** FILL means "no bars",
+  and it was only getting half of that: the battle screen is scaled to your
+  display’s height, which closes the bands above and below it and leaves the
+  ones at the sides.
+
+  The backdrop closes those now. It is allowed to hang off the edge — nothing
+  outside the battle screen is interactive — so under FILL it is drawn big
+  enough to reach every edge of your display, on both cartridges and in both
+  battle layouts.
+
+  The POKéMON still land where they belong: the zoom is the smallest one that
+  can cover, anchored on the battle screen’s own centre so the scene moves
+  least exactly where the battlers and the HUD are.
+
+  **BATTLE SIZE = FIXED is unchanged** and keeps its bars, deliberately: there
+  the gap is whatever the whole-number scale left over, and zooming the scene
+  that far to chase it would move the ground out from under them.
+
 ## 1.70.0
 
 Re-pinned to **Gen1WildUI 1.37.0**.
