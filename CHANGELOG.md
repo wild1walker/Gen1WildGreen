@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.72.0
+
+Re-pinned to **Gen1WildUI 1.39.0**.
+
+- **Reverted the FILL zoom from the last release.** It reached every edge of
+  the display, and on a handheld it sat beside a battle screen the engine had
+  scaled by a different rule — so the scene showed at two magnifications at
+  once, joined at the battle screen’s edge. Worse than the bars it removed, so
+  it is out.
+
+  **BATTLE SIZE = FIXED is back to how it was two releases ago**, which is the
+  one people liked.
+
 ## 1.71.0
 
 Re-pinned to **Gen1WildUI 1.38.0**.
