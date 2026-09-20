@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "wild_green",
   "title": "Wild Green",
-  "version": "1.74.0",
+  "version": "1.75.0",
   "author": "wild1walker",
   "repo": "wild1walker/Gen1WildGreen",
   "summary": "Red, played as its own version: the Gen1Wild suite pinned whole, and a green player.",
@@ -24,8 +24,8 @@
       "id": "crystal_animated_sprites_with_shiny_visuals",
       "source": "github",
       "repo": "distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals",
-      "version": "2.0.2",
-      "sha256": "59b6204e66dc14c32b3035fea115236080dfc33ec86f928f04ac6974a1aca86c"
+      "version": "2.0.3",
+      "sha256": "3d2874917f03a42cbf96d0d7e1b5c19bde09a5405fe12559ac241af017155689"
     },
     {
       "id": "gen1_wild_ui",
