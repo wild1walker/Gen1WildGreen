@@ -33,7 +33,7 @@ base Red saves. Two people running Wild Green are running the same game.
 |---|---|---|
 | <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_qol/thumbnail.png" width="54" alt=""> | **[Gen1WildQOL][qol]** | Everything that makes Red *play* better: sprinting, autosave, auto continue, sound, followers, all 151, EXP share, the move reminder, menu layout, the mod manager and four later-generation conveniences. |
 | <img src="https://raw.githubusercontent.com/wild1walker/Gen1Wild/main/mods/Wild@gen1_wild_ui/thumbnail.png" width="54" alt=""> | **[Gen1WildUI][ui]** | Everything that makes Red *look* better: battle backdrops, the battle intro and menus, the Pokédex, the box, the party menu, the bag, item icons and descriptions, the lift panel. |
-| | **[Crystal Animated Sprites with Shiny Visuals][crystal]** | Crystal animated battle sprites, Gen 2-style shiny reveals, and swappable trainer portraits. Somebody else's mod, pinned as it is. |
+| | **[Crystal Animated Sprites][crystal]** | Crystal's animated battle sprites, Crystal's sparkle when a shiny appears, and Crystal's party icons — built from **your own Pokémon Crystal ROM** (see below). Somebody else's mod, pinned as it is. |
 | | **[Wild Green][mod]** | The version itself: the player in green wherever the game draws him, and `WILD GREEN VERSION` on the title screen. Written for this cart. |
 
 The mod set is sealed: these four run exactly as pinned, and nothing can be
@@ -51,6 +51,20 @@ to `PLAYER = RED` gives you the original character with nothing to reinstall.
 
 The base game is **Red**. The cart carries no game data and no ROM bytes; you
 bring your own, exactly as the engine already asks.
+
+The animated sprites are built the same way: from **your own Pokémon Crystal
+ROM** (English, v1.0 or v1.1), once, in the background the first time the game
+runs with it. Give it to the game from **MODS**: open **Crystal Animated
+Sprites**, then **Details > Imported files**. Without it Wild Green still
+plays, with Red's own sprites, and the mod manager lists the sprite mod as
+waiting for its import. The sprites are drawn in the game's own palettes, so
+they sit with everything else on screen in every COLORS mode.
+
+If you played Wild Green before 1.76.0, delete the old **Crystal Animated
+Sprites with Shiny Visuals** from **MODS** (**Details > Delete**) once you
+have given the game your Crystal ROM. The cart no longer uses it, and the two
+mods refuse to run side by side, so leaving it installed switches both off in
+plain Red, Blue and Yellow and on any save you have broken the seal on.
 
 ## Installing it
 
@@ -85,8 +99,10 @@ The index is [Gen1NightlyIndex][nightlyindex] and the source is
 
 - **[Gen1Wild][index]** — the suite this is the version of, and the wordmark
   on the label.
+- **Code-Grub** — [Crystal Animated Sprites][crystal], pinned here
+  unmodified rather than forked.
 - **distilledorion-sketch** — [Crystal Animated Sprites with Shiny
-  Visuals][crystal], pinned here unmodified rather than forked.
+  Visuals][crystal-old], the animated sprites in Wild Green up to 1.75.0.
 - **[Gen1Recomp][engine]** — the engine and the cart format.
 - **pret** — the disassemblies underneath all of it.
 
@@ -99,7 +115,8 @@ MIT. See [LICENSE](LICENSE).
 [index]: https://github.com/wild1walker/Gen1Wild
 [ui]: https://github.com/wild1walker/Gen1WildUI
 [qol]: https://github.com/wild1walker/Gen1WildQOL
-[crystal]: https://github.com/distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals
+[crystal]: https://github.com/Code-Grub/crystal-animated-sprites
+[crystal-old]: https://github.com/distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals
 [mod]: https://github.com/wild1walker/Gen1MakeItGreen
 [nightlyindex]: https://github.com/wild1walker/Gen1NightlyIndex
 [nightlymods]: https://github.com/wild1walker/Gen1NightlyMods

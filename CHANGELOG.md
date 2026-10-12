@@ -1,5 +1,56 @@
 # Changelog
 
+## 1.76.0
+
+Re-pinned to **Crystal Animated Sprites 0.6.0** (Code-Grub), **Gen1WildQOL
+1.34.0** and **Gen1WildUI 1.43.1**.
+
+- **Wild Green is back in the game's FIND MODS list.** The official index now
+  scans every mod a cart pins before it publishes the cart, and the sprite mod
+  this cart used, *Crystal Animated Sprites with Shiny Visuals*, ships two
+  leftover zip files inside its own (`assets/overworld/player/unused.zip` and
+  `assets/trainers/player/unused.zip`). The scanner will not open an archive
+  inside an archive, so it could never finish checking that mod, and the cart
+  was left out of the published list. It was still on GitHub; the game just
+  never saw it.
+- **The animated sprites now come from Code-Grub's Crystal Animated
+  Sprites**, which ships no artwork at all: it builds Crystal's animated
+  sprites, the shiny sparkle and Crystal's party icons from **your own Pokémon
+  Crystal ROM** (English, v1.0 or v1.1). Give it the ROM once from **MODS >
+  Crystal Animated Sprites > Details > Imported files**; the first run builds
+  the sprites in the background. Without the ROM the cart still plays, with
+  Red's own sprites.
+- **The sprites are drawn in the game's own palettes** (its SPRITE COLORS is
+  pinned to GAME). Its CRYSTAL colours are only right under COLORS = ADVANCED;
+  in SGB, OG RED and the mono modes they were run back through Red's palettes
+  and lost their shading — Pikachu came out white.
+- **A Pokémon animates as it appears and each time it uses a move**, as in
+  Crystal, then holds its resting frame. The old mod looped the animation.
+- **If you are upgrading, delete the old *Crystal Animated Sprites with Shiny
+  Visuals*** from MODS (Details > Delete) once you have given the game your
+  Crystal ROM. The two mods refuse to run side by side, so leaving it
+  installed switches both off in plain Red, Blue and Yellow and on any save
+  whose seal you have broken. The cart itself is not affected.
+- The old mod's other rows go with it: its trainer portraits (PLAYER SPRITE
+  and the opponents' portraits), FRONT SPRITES, REPLACE SPRITES, BATTLE PIC
+  and ANIMATIONS. Code-Grub's mod only draws Pokémon, so nothing competes with
+  the green player any more.
+- Gen1WildUI 1.43.1 brings Gen1BillsBox 1.14.0: a Pokémon taken out of the
+  GLOBAL BOX counts as caught in the Pokédex. The rest of both bundle updates
+  is for Gold, Silver, Crystal and the GBA games and changes nothing on Red.
+
+## 1.75.0
+
+Re-pinned to **Crystal Animated Sprites with Shiny Visuals 2.0.3**.
+
+## 1.74.0
+
+Re-pinned to **Gen1WildUI 1.42.0**.
+
+## 1.73.0
+
+Re-pinned to **Gen1WildUI 1.41.0**.
+
 ## 1.72.0
 
 Re-pinned to **Gen1WildUI 1.39.0**.

@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "wild_green",
   "title": "Wild Green",
-  "version": "1.75.0",
+  "version": "1.76.0",
   "author": "wild1walker",
   "repo": "wild1walker/Gen1WildGreen",
   "summary": "Red, played as its own version: the Gen1Wild suite pinned whole, and a green player.",
@@ -17,22 +17,25 @@
       "id": "gen1_wild_qol",
       "source": "github",
       "repo": "wild1walker/Gen1WildQOL",
-      "version": "1.33.0",
-      "sha256": "8c43aebbf60aa8972cd011638d6f5b0ba1853795335da395c883f806950ecd6f"
+      "version": "1.34.0",
+      "sha256": "d1b7bf84a0bfbe4b754065738df121afa41563f12e23a0084f4af472d7848435"
     },
     {
-      "id": "crystal_animated_sprites_with_shiny_visuals",
+      "id": "crystal_animated_sprites",
       "source": "github",
-      "repo": "distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals",
-      "version": "2.0.3",
-      "sha256": "3d2874917f03a42cbf96d0d7e1b5c19bde09a5405fe12559ac241af017155689"
+      "repo": "Code-Grub/crystal-animated-sprites",
+      "version": "0.6.0",
+      "sha256": "4bda93a4ebab7636b8c754789451f07e150e624be576ff031b1a98c490710efd",
+      "options": {
+        "sprite_colors": "game"
+      }
     },
     {
       "id": "gen1_wild_ui",
       "source": "github",
       "repo": "wild1walker/Gen1WildUI",
-      "version": "1.42.0",
-      "sha256": "887f17aad5ebcb86c3025b9b1ac7e7ae7001e5e287e33e09cfc2cf994fbc1aa6"
+      "version": "1.43.1",
+      "sha256": "982ca9ef7e2174cb8d3715f1de7954a604e39c91d87ef5d172d2dd0d96d95ad6"
     },
     {
       "id": "wild_green",
@@ -47,7 +50,7 @@
   ],
   "load_order": [
     "gen1_wild_qol",
-    "crystal_animated_sprites_with_shiny_visuals",
+    "crystal_animated_sprites",
     "gen1_wild_ui",
     "wild_green"
   ]
