@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.78.0
+
+Re-pinned to **Gen1WildQOL 1.35.0** and **Crystal Animated Sprites 0.6.1**.
+
+- Crystal Animated Sprites 0.6.1 builds the sprites by reading your Crystal
+  ROM through the game's own import access, instead of handing a copy of the
+  ROM to each background worker. The sprites look and play the same; it is
+  less memory while they build.
+- Gen1WildQOL 1.35.0 is a fix to ALL 251 on Gold, Silver and Crystal, and
+  changes nothing on Red.
+
 ## 1.77.0
 
 Re-pinned to **Gen1WildUI 1.44.0** (Gen1Arena 0.38.0).
