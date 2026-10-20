@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.77.0
+
+Re-pinned to **Gen1WildUI 1.44.0** (Gen1Arena 0.38.0).
+
+- **Every battle backdrop fills the screen.** The backdrops end in a flat strip
+  of colour, the part the message box covers, and the picture in the side
+  bars stopped there: on a 4:3 screen the bottom of both side bars was black
+  beside the message box, and with no box up the strip showed as a flat slab.
+  Only the route backdrop, drawn without that strip, filled the screen. Now
+  every scene's strip is filled with the ground just above it, mirrored, so the
+  picture runs to the bottom of the screen in every battle.
+- The rest of 1.44.0 is for FireRed, LeafGreen and Emerald and changes nothing
+  on Red.
+
 ## 1.76.0
 
 Re-pinned to **Crystal Animated Sprites 0.6.0** (Code-Grub), **Gen1WildQOL
